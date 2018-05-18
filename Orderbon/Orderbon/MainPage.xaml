@@ -12,30 +12,29 @@
     <ListView x:Name="MyListView"
             ItemsSource="{Binding Items}"
             ItemSelected="MyListView_ItemSelected"
-            CachingStrategy="RecycleElement">
+            CachingStrategy="RecycleElement"
+            RowHeight="100">
 
         <!--Built in Cells-->
+        <!--
         <ListView.ItemTemplate>
             <DataTemplate>
-                <TextCell Text="{Binding Date}" />
+                <TextCell Text="{Binding Title}" />
             </DataTemplate>
         </ListView.ItemTemplate>
-
+        -->
+        
         <!--Custom View Cells-->
-        <!--
-    
-    <ListView.ItemTemplate>
-        <DataTemplate>
-            <ViewCell>
-                <StackLayout>
-                    <Image Source="{Binding Icon}"/>
-                    <Label Text="{Binding Name}" 
-                            Style="{DynamicResource ListItemTextStyle}" />
-                </StackLayout>
-            </ViewCell>
-        </DataTemplate>
-    </ListView.ItemTemplate>
-    -->
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Padding="10,0,0,0">
+                        <Label Text="{Binding Title}" TextColor="Black" Font="Bold,20"/>
+                        <Label Text="{Binding Date}" TextColor="Gray" Font="14"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
     </ListView>
 
 </ContentPage>

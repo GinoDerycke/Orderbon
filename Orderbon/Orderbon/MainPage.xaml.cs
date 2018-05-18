@@ -18,11 +18,11 @@ namespace Orderbon
 
             Items = new ObservableCollection<Order>
             {
-                new Order { Date = "01/05/2018" },
-                new Order { Date = "02/05/2018" },
-                new Order { Date = "14/05/2018" },
-                new Order { Date = "17/05/2018" },
-                new Order { Date = "18/05/2018" }
+                new Order { Title = "Bestelling vijzen", Date = "01/05/2018" },
+                new Order { Title = "Geen titel", Date = "02/05/2018" },
+                new Order { Title = "Kabels", Date = "14/05/2018" },
+                new Order { Title = "Toebehoren", Date = "17/05/2018" },
+                new Order { Title = "Bestelling draad", Date = "18/05/2018" }
             };
 
             MyListView.ItemsSource = Items;
