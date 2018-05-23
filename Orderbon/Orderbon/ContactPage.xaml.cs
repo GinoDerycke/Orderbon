@@ -12,11 +12,17 @@ namespace Orderbon
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ContactPage : ContentPage
     {
+        public ObservableCollection<Contact> Items { get; set; }
+
         public ContactPage()
         {
             InitializeComponent();
 
-			MyListView.ItemsSource = Contacts;
+            Items = (Application.Current as App).Contacts;
+
+            MyListView.ItemsSource = Items;
+
+            DisplayAlert("Test", "Create ContactPage", "OK");
         }
 
         async void Handle_ItemTapped(object sender, ItemTappedEventArgs e)

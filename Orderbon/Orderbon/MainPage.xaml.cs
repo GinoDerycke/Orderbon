@@ -16,14 +16,7 @@ namespace Orderbon
 		{
 			InitializeComponent();
 
-            Items = new ObservableCollection<Order>
-            {
-                new Order { Title = "Bestelling vijzen", Date = "01/05/2018" },
-                new Order { Title = "Geen titel", Date = "02/05/2018" },
-                new Order { Title = "Kabels", Date = "14/05/2018" },
-                new Order { Title = "Toebehoren", Date = "17/05/2018" },
-                new Order { Title = "Bestelling draad", Date = "18/05/2018" }
-            };
+            Items = (Application.Current as App).Orders;
 
             MyListView.ItemsSource = Items;
         }
@@ -39,6 +32,11 @@ namespace Orderbon
         }
 
         private void ToolbarItem_Activated(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Delete_Clicked(object sender, EventArgs e)
         {
 
         }

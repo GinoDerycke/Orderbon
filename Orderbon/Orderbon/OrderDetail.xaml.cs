@@ -20,6 +20,8 @@ namespace Orderbon
             BindingContext = order;
 
             InitializeComponent ();
-		}
+
+            DisplayAlert("Test", "Create OrderDetail", "OK");
+        }
 	}
 }
