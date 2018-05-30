@@ -13,7 +13,7 @@
             ItemsSource="{Binding Items}"
             ItemSelected="MyListView_ItemSelected"
             CachingStrategy="RecycleElement"
-            RowHeight="100">
+            HasUnevenRows="True">
 
         <!--Built in Cells-->
         <!--
@@ -28,9 +28,10 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Padding="10,0,0,0">
-                        <Label Text="{Binding Title}" TextColor="Black" Font="Bold,20"/>
-                        <Label Text="{Binding Date}" TextColor="Gray" Font="14"/>
+                    <StackLayout Padding="10,10,0,10">
+                        <Label Text="{Binding _Order.Date}" TextColor="Gray" Font="14"/>
+                        <Label Text="{Binding _Order.Title}" TextColor="Black" Font="Bold,14"/>
+                        <Label Text="{Binding _Contact.Name}" TextColor="Gray" Font="14"/>
                     </StackLayout>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Delete" Clicked="Delete_Clicked" />

@@ -10,13 +10,13 @@ namespace Orderbon
 {
 	public partial class MainPage : ContentPage
 	{
-        private ObservableCollection<Order> Items { get; set; }
+        private ObservableCollection<OrderWithContact> Items { get; set; }
 
         public MainPage()
 		{
 			InitializeComponent();
 
-            Items = (Application.Current as App).Orders;
+            Items = (Application.Current as App).OrderWithContacts;
 
             MyListView.ItemsSource = Items;
         }

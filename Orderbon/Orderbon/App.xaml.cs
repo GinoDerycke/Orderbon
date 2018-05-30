@@ -1,5 +1,6 @@
 using System;
 using System.Collections.ObjectModel;
+using System.Linq;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -10,6 +11,7 @@ namespace Orderbon
     {
         public ObservableCollection<Contact> Contacts { get; set; }
         public ObservableCollection<Order> Orders { get; set; }
+        public ObservableCollection<OrderWithContact> OrderWithContacts { get; set; }
 
         private void LoadContacts()
         {
@@ -20,7 +22,7 @@ namespace Orderbon
             };
         }
 
-        private void LoadOrders ()
+        private void LoadOrders()
         {
             Orders = new ObservableCollection<Order>
             {
@@ -34,6 +36,20 @@ namespace Orderbon
             //return (this.Where(o => o.ID == ID)) as Order;
         }
 
+        private void LoadOrderWithContacts()
+        {
+            OrderWithContacts = new ObservableCollection<OrderWithContact>();
+
+            foreach(Order order in Orders)
+            {
+                OrderWithContact _OrderWithContact = new OrderWithContact();
+                _OrderWithContact._Order = order;
+                _OrderWithContact._Contact = (Contacts.Single(x => x.ID == order.ContactID) as Contact);
+                OrderWithContacts.Add(_OrderWithContact);
+            }
+
+        }
+
         public App ()
 		{
 			InitializeComponent();
@@ -41,7 +57,9 @@ namespace Orderbon
             LoadContacts();
              
             LoadOrders();
-            
+
+            LoadOrderWithContacts();
+
             MainPage = new NavigationPage(new MainPage());
         }
 
