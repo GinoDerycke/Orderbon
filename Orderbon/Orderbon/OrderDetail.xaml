@@ -4,10 +4,25 @@
              x:Class="Orderbon.OrderDetail"
              Title="Order">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="{Binding _Order.Title}"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
-        </StackLayout>
+        <TableView Intent="Form">
+            <TableRoot>
+                <TableSection Title="Algemeen">
+                    <EntryCell Placeholder="Titel" Text="{Binding _Order.Title}" />
+                    <EntryCell Label="Klant" Text="{Binding _Contact.Name}" XAlign="Center" />
+                    <TextCell Text="Aangemaakt op" Detail="{Binding _Order.Date}" />
+                    <TextCell Text="Laatst gewijzigd op" Detail="{Binding _Order.Date}" />
+                </TableSection>
+                <TableSection Title="Artikelen">
+                    <ViewCell>
+                        <ListView></ListView>
+                    </ViewCell>    
+                </TableSection>
+                <TableSection Title="Commentaar">
+                    <ViewCell>
+                        <Editor></Editor>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>                
+        </TableView>
     </ContentPage.Content>
 </ContentPage>
