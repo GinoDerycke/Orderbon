@@ -12,16 +12,14 @@ namespace Orderbon
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class OrderDetail : ContentPage
 	{
-		public OrderDetail (Order order)
+		public OrderDetail (OrderWithContact orderWithContact)
 		{
-            if (order == null)
+            if (orderWithContact == null)
                 throw new ArgumentNullException();
 
-            BindingContext = order;
+            BindingContext = orderWithContact;
 
             InitializeComponent ();
-
-            DisplayAlert("Test", "Create OrderDetail", "OK");
         }
 	}
 }

@@ -26,8 +26,8 @@ namespace Orderbon
             if (e.SelectedItem == null)
                 return;
             
-            var order = e.SelectedItem as Order;
-            await Navigation.PushAsync(new OrderDetail(order));
+            var orderWithContact = e.SelectedItem as OrderWithContact;
+            await Navigation.PushAsync(new OrderDetail(orderWithContact));
             MyListView.SelectedItem = null;
         }
 

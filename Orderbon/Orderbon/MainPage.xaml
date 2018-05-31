@@ -28,10 +28,12 @@
         <ListView.ItemTemplate>
             <DataTemplate>
                 <ViewCell>
-                    <StackLayout Padding="10,10,0,10">
-                        <Label Text="{Binding _Order.Date}" TextColor="Gray" Font="14"/>
-                        <Label Text="{Binding _Order.Title}" TextColor="Black" Font="Bold,14"/>
-                        <Label Text="{Binding _Contact.Name}" TextColor="Gray" Font="14"/>
+                    <StackLayout Padding="10,10,10,10">
+                        <StackLayout Orientation="Horizontal">
+                            <Label Text="{Binding _Order.Date}" TextColor="Gray" Font="14" HorizontalOptions="StartAndExpand"/>
+                            <Label Text="{Binding _Contact.Name}" TextColor="Gray" Font="14" HorizontalOptions="End"/>
+                        </StackLayout>
+                        <Label Text="{Binding _Order.Title}" TextColor="Black" Font="Bold,16"/>
                     </StackLayout>
                     <ViewCell.ContextActions>
                         <MenuItem Text="Delete" Clicked="Delete_Clicked" />

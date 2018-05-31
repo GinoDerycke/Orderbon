@@ -5,7 +5,7 @@
              Title="Order">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="{Binding Title}"
+            <Label Text="{Binding _Order.Title}"
                 VerticalOptions="CenterAndExpand" 
                 HorizontalOptions="CenterAndExpand" />
         </StackLayout>
