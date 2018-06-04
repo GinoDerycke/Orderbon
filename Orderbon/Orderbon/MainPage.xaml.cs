@@ -16,7 +16,8 @@ namespace Orderbon
         {
             InitializeComponent();
 
-            //this.Children.Add(new NavigationPage(new MainPage()));
+            this.Children.Add(new NavigationPage(new OrderPage()));
+
         }
     }
 }
