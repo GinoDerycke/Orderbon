@@ -1,25 +1,55 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Core" 
              x:Class="Orderbon.OrderDetail"
              Title="Order">
     <ContentPage.Content>
-        <TableView Intent="Form">
+        <TableView Intent="Form" HasUnevenRows="True">
             <TableRoot>
-                <TableSection Title="Algemeen">
-                    <EntryCell Placeholder="Titel" Text="{Binding _Order.Title}" />
-                    <EntryCell Label="Klant" Text="{Binding _Contact.Name}" XAlign="Center" />
-                    <TextCell Text="Aangemaakt op" Detail="{Binding _Order.Date}" />
-                    <TextCell Text="Laatst gewijzigd op" Detail="{Binding _Order.Date}" />
-                </TableSection>
-                <TableSection Title="Artikelen">
+                <TableSection>
                     <ViewCell>
-                        <ListView></ListView>
-                    </ViewCell>    
+                        <Grid Padding="20,10,10,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="https://png.icons8.com/material/48/000000/about.png" VerticalOptions="Center" Scale="1.5" />
+                            <Entry Grid.Column="1" Grid.Row="0" Placeholder="Titel" Text="{Binding _Order.Title}"  />
+                            <Entry Grid.Column="1" Grid.Row="1" Placeholder="Klant" Text="{Binding _Contact.Name}" />
+                            <!--<Label Grid.Column="1" Grid.Row="2" Text="{Binding _Order.Date}" />-->
+                        </Grid>
+                     </ViewCell>
                 </TableSection>
-                <TableSection Title="Commentaar">
+                <!--
+                <TableSection>
                     <ViewCell>
-                        <Editor></Editor>
+                        <Grid Padding="10,10,10,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="https://png.icons8.com/material/48/000000/info.png" VerticalOptions="Center" />
+                            <ListView Grid.Column="1" Grid.Row="0">
+                                
+                            </ListView>
+                        </Grid>
+                    </ViewCell>   
+                </TableSection>
+                -->
+                <TableSection>
+                    <ViewCell>
+                        <Grid Padding="20,10,10,10">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="https://png.icons8.com/material/48/000000/comments.png" VerticalOptions="Start" Scale="1.5" Margin="0,12,0,0"/>
+                            <local:ExpandableEditor Grid.Column="1" Grid.Row="0" VerticalOptions="FillAndExpand" />
+                        </Grid>
                     </ViewCell>
                 </TableSection>
             </TableRoot>                
