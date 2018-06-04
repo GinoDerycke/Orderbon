@@ -10,9 +10,9 @@ using Xamarin.Forms.Xaml;
 namespace Orderbon
 {
 	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class OrderDetail : ContentPage
+	public partial class OrderDetailPage : ContentPage
 	{
-		public OrderDetail (OrderWithContact orderWithContact)
+		public OrderDetailPage(OrderWithContact orderWithContact)
 		{
             if (orderWithContact == null)
                 throw new ArgumentNullException();

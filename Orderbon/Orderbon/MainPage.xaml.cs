@@ -3,42 +3,20 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 using Xamarin.Forms;
-using System.Collections.ObjectModel;
+using Xamarin.Forms.Xaml;
 
 namespace Orderbon
 {
-	public partial class MainPage : ContentPage
-	{
-        private ObservableCollection<OrderWithContact> Items { get; set; }
-
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class MainPage : TabbedPage
+    {
         public MainPage()
-		{
-			InitializeComponent();
-
-            Items = (Application.Current as App).OrderWithContacts;
-
-            MyListView.ItemsSource = Items;
-        }
-
-        async private void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
         {
-            if (e.SelectedItem == null)
-                return;
-            
-            var orderWithContact = e.SelectedItem as OrderWithContact;
-            await Navigation.PushAsync(new OrderDetail(orderWithContact));
-            MyListView.SelectedItem = null;
-        }
+            InitializeComponent();
 
-        private void ToolbarItem_Activated(object sender, EventArgs e)
-        {
-
-        }
-
-        private void Delete_Clicked(object sender, EventArgs e)
-        {
-
+            //this.Children.Add(new NavigationPage(new MainPage()));
         }
     }
 }

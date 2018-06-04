@@ -2,19 +2,19 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              xmlns:local="clr-namespace:Core" 
-             x:Class="Orderbon.OrderDetail"
+             x:Class="Orderbon.OrderDetailPage"
              Title="Order">
     <ContentPage.Content>
         <TableView Intent="Form" HasUnevenRows="True">
             <TableRoot>
                 <TableSection>
                     <ViewCell>
-                        <Grid Padding="20,10,10,10">
+                        <Grid Padding="20,10,20,10">
                             <Grid.ColumnDefinitions>
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Grid.Row="0" Source="https://png.icons8.com/material/48/000000/about.png" VerticalOptions="Center" Scale="1.5" />
+                            <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
                             <Entry Grid.Column="1" Grid.Row="0" Placeholder="Titel" Text="{Binding _Order.Title}"  />
                             <Entry Grid.Column="1" Grid.Row="1" Placeholder="Klant" Text="{Binding _Contact.Name}" />
                             <!--<Label Grid.Column="1" Grid.Row="2" Text="{Binding _Order.Date}" />-->
@@ -39,7 +39,7 @@
                 -->
                 <TableSection>
                     <ViewCell>
-                        <Grid Padding="20,10,10,10">
+                        <Grid Padding="20,10,20,10">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="Auto"/>
                             </Grid.RowDefinitions>
@@ -47,7 +47,7 @@
                                 <ColumnDefinition Width="Auto" />
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
-                            <Image Grid.Column="0" Grid.Row="0" Source="https://png.icons8.com/material/48/000000/comments.png" VerticalOptions="Start" Scale="1.5" Margin="0,12,0,0"/>
+                            <Image Grid.Column="0" Grid.Row="0" Source="baseline_comment_black_24.png" VerticalOptions="Start" Margin="0,12,0,0"/>
                             <local:ExpandableEditor Grid.Column="1" Grid.Row="0" VerticalOptions="FillAndExpand" />
                         </Grid>
                     </ViewCell>
