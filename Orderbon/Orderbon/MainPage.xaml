@@ -9,4 +9,10 @@
             <local:OrderPage />
         </x:Arguments>
     </NavigationPage>
+    <NavigationPage Title="Klanten" Icon="">
+        <x:Arguments>
+            <local:ContactPage />
+        </x:Arguments>
+    </NavigationPage>
+    <ContentPage Title="Artikelen" />
 </TabbedPage>
