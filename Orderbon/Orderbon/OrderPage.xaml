@@ -4,42 +4,35 @@
              xmlns:local="clr-namespace:Orderbon"
              x:Class="Orderbon.OrderPage"
              Title="Orders">
+    <!--
     <ContentPage.ToolbarItems>
         <ToolbarItem Icon="https://png.icons8.com/color/50/000000/plus.png" Text="New" Activated="ToolbarItem_Activated" />
-
-
     </ContentPage.ToolbarItems>
-    <ListView x:Name="MyListView"
+    -->
+    <AbsoluteLayout>
+        <ListView x:Name="MyListView"
             ItemsSource="{Binding Items}"
             ItemSelected="MyListView_ItemSelected"
             CachingStrategy="RecycleElement"
             HasUnevenRows="True">
-
-        <!--Built in Cells-->
-        <!--
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <TextCell Text="{Binding Title}" />
-            </DataTemplate>
-        </ListView.ItemTemplate>
-        -->
-        
-        <!--Custom View Cells-->
-        <ListView.ItemTemplate>
-            <DataTemplate>
-                <ViewCell>
-                    <StackLayout Padding="20,10,20,10">
-                        <StackLayout Orientation="Horizontal">
-                            <Label Text="{Binding _Order.Date}" TextColor="Gray" Font="14" HorizontalOptions="StartAndExpand"/>
-                            <Label Text="{Binding _Contact.Name}" TextColor="Gray" Font="14" HorizontalOptions="End"/>
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <ViewCell>
+                        <StackLayout Padding="20,10,20,10">
+                            <StackLayout Orientation="Horizontal">
+                                <Label Text="{Binding _Order.Date}" TextColor="Gray" Font="14" HorizontalOptions="StartAndExpand"/>
+                                <Label Text="{Binding _Contact.Name}" TextColor="Gray" Font="14" HorizontalOptions="End"/>
+                            </StackLayout>
+                            <Label Text="{Binding _Order.Title}" TextColor="Black" Font="Bold,16"/>
                         </StackLayout>
-                        <Label Text="{Binding _Order.Title}" TextColor="Black" Font="Bold,16"/>
-                    </StackLayout>
-                    <ViewCell.ContextActions>
-                        <MenuItem Text="Delete" Clicked="Delete_Clicked" />
-                    </ViewCell.ContextActions>
-                </ViewCell>
-            </DataTemplate>
-        </ListView.ItemTemplate>
-    </ListView>
+                        <ViewCell.ContextActions>
+                            <MenuItem Text="Delete" Clicked="Delete_Clicked" />
+                        </ViewCell.ContextActions>
+                    </ViewCell>
+                </DataTemplate>
+            </ListView.ItemTemplate>
+        </ListView>
+        <Button Text="+" BorderRadius="30" BackgroundColor="Red" TextColor="White" FontSize="30"
+            AbsoluteLayout.LayoutBounds="0.95,0.95,60,60" AbsoluteLayout.LayoutFlags="PositionProportional" />
+    </AbsoluteLayout>
 </ContentPage>
