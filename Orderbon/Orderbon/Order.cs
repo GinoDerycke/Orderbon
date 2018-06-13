@@ -7,10 +7,10 @@ namespace Orderbon
 {
     public class Order
     {
-        public int ID { get; set; }
+        public int Id { get; set; }
         public string Title { get; set; }
         public string Date { get; set; }
-        public int ContactID { get; set; }
+        public int ContactId { get; set; }
     }
 
 }

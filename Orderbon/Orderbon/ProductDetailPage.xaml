@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Orderbon.ProductDetailPage"
+             Title="Artikel">
+    <ContentPage.Content>
+        <TableView Intent="Form" HasUnevenRows="True">
+            <TableRoot>
+                <TableSection>
+                    <ViewCell>
+                        <Grid Padding="20,10,20,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
+                            <Entry Grid.Column="1" Grid.Row="0" Placeholder="Naam" Text="{Binding Name}"  />
+                            <Entry Grid.Column="1" Grid.Row="1" Placeholder="Code" Text="{Binding Code}"  />
+                            <Entry Grid.Column="1" Grid.Row="2" Placeholder="Groep" Text="{Binding Group}"  />
+                            <Entry Grid.Column="1" Grid.Row="3" Placeholder="Leverancier" Text="{Binding Supplier}"  />
+                            <Entry Grid.Column="1" Grid.Row="4" Placeholder="Eenheid" Text="{Binding Unit}"  />
+                            <Entry Grid.Column="1" Grid.Row="5" Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT}"  />
+                            <Entry Grid.Column="1" Grid.Row="6" Placeholder="Voorraad" Text="{Binding Stock}"  />
+                            <Entry Grid.Column="1" Grid.Row="7" Placeholder="Gereserveerd" Text="{Binding Reserved}"  />
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

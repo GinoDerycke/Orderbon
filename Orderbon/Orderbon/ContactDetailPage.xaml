@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Orderbon.ContactDetailPage"
+             Title="Klant">
+    <ContentPage.Content>
+        <TableView Intent="Form" HasUnevenRows="True">
+            <TableRoot>
+                <TableSection>
+                    <ViewCell>
+                        <Grid Padding="20,10,20,10">
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition Width="Auto" />
+                                <ColumnDefinition Width="*" />
+                            </Grid.ColumnDefinitions>
+                            <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
+                            <Entry Grid.Column="1" Grid.Row="0" Placeholder="Naam" Text="{Binding Name}"  />
+                            <Entry Grid.Column="1" Grid.Row="1" Placeholder="Code" Text="{Binding Code}"  />
+                            <Entry Grid.Column="1" Grid.Row="2" Placeholder="Telefoonnummer" Text="{Binding Phone}"  />
+                            <Entry Grid.Column="1" Grid.Row="3" Placeholder="Groep" Text="{Binding Group}"  />
+                        </Grid>
+                    </ViewCell>
+                </TableSection>
+            </TableRoot>
+        </TableView>
+    </ContentPage.Content>
+</ContentPage>

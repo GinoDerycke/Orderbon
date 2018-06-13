@@ -14,5 +14,9 @@
             <local:ContactPage />
         </x:Arguments>
     </NavigationPage>
-    <ContentPage Title="Artikelen" />
+    <NavigationPage Title="Artikelen" Icon="">
+        <x:Arguments>
+            <local:ProductPage />
+        </x:Arguments>
+    </NavigationPage>
 </TabbedPage>

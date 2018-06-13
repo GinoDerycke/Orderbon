@@ -1,7 +1,8 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
-using System.ComponentModel;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
 using Xamarin.Forms;
@@ -9,16 +10,16 @@ using Xamarin.Forms.Xaml;
 
 namespace Orderbon
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class ContactPage : ContentPage
-    {
-        public ObservableCollection<Contact> Items { get; set; }
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class ProductPage : ContentPage
+	{
+        public ObservableCollection<Product> Items { get; set; }
 
-        public ContactPage()
-        {
-            InitializeComponent();
+        public ProductPage ()
+		{
+			InitializeComponent ();
 
-            Items = (Application.Current as App).Contacts;
+            Items = (Application.Current as App).Products;
 
             MyListView.ItemsSource = Items;
         }
@@ -28,8 +29,8 @@ namespace Orderbon
             if (e.SelectedItem == null)
                 return;
 
-            var contact = e.SelectedItem as Contact;
-            await Navigation.PushAsync(new ContactDetailPage(contact));
+            var product = e.SelectedItem as Product;
+            await Navigation.PushAsync(new ProductDetailPage(product));
             MyListView.SelectedItem = null;
         }
 
@@ -37,6 +38,5 @@ namespace Orderbon
         {
 
         }
-
     }
 }
