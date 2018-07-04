@@ -2,7 +2,8 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Orderbon.ContactDetailPage"
-             Title="Klant">
+             Title="Klant"
+             NavigationPage.HasBackButton="False">
     <ContentPage.ToolbarItems>
         <ToolbarItem Text="Opslaan" Activated="Save_Activated" />
     </ContentPage.ToolbarItems>

@@ -24,6 +24,9 @@ namespace Orderbon
             InitializeComponent ();
 
             changed = false;
+
+            if (contact.Name == null)
+                Title = "Nieuwe klant";
         }
 
         async private void Save_Activated(object sender, EventArgs e)
@@ -42,6 +45,16 @@ namespace Orderbon
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
             changed = true;
+        }
+
+        protected override bool OnBackButtonPressed()
+        {
+            Device.BeginInvokeOnMainThread(async () => {
+                var result = await this.DisplayAlert("Alert!", "Do you really want to exit?", "Yes", "No");
+                if (result) await this.Navigation.PopAsync(); // or anything else
+            });
+
+            return true;
         }
     }
 }
