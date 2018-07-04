@@ -3,6 +3,9 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Orderbon.ContactDetailPage"
              Title="Klant">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Opslaan" Activated="Save_Activated" />
+    </ContentPage.ToolbarItems>
     <ContentPage.Content>
         <TableView Intent="Form" HasUnevenRows="True">
             <TableRoot>
@@ -14,10 +17,10 @@
                                 <ColumnDefinition Width="*" />
                             </Grid.ColumnDefinitions>
                             <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
-                            <Entry Grid.Column="1" Grid.Row="0" Placeholder="Naam" Text="{Binding Name}"  />
-                            <Entry Grid.Column="1" Grid.Row="1" Placeholder="Code" Text="{Binding Code}"  />
-                            <Entry Grid.Column="1" Grid.Row="2" Placeholder="Telefoonnummer" Text="{Binding Phone}"  />
-                            <Entry Grid.Column="1" Grid.Row="3" Placeholder="Groep" Text="{Binding Group}"  />
+                            <Entry Grid.Column="1" Grid.Row="0" Placeholder="Naam" Text="{Binding Name}" TextChanged="Entry_TextChanged" />
+                            <Entry Grid.Column="1" Grid.Row="1" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" />
+                            <Entry Grid.Column="1" Grid.Row="2" Placeholder="Telefoonnummer" Text="{Binding Phone}" TextChanged="Entry_TextChanged" />
+                            <Entry Grid.Column="1" Grid.Row="3" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" />
                         </Grid>
                     </ViewCell>
                 </TableSection>

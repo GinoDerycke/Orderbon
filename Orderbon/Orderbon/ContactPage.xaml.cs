@@ -38,5 +38,14 @@ namespace Orderbon
 
         }
 
+        async private void Add_Clicked(object sender, EventArgs e)
+        {
+            var contact = new Contact();
+
+            await Navigation.PushAsync(new ContactDetailPage(contact));
+
+            if (contact.Name != "")
+                Items.Add(contact);
+        }
     }
 }

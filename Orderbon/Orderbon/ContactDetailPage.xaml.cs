@@ -12,7 +12,9 @@ namespace Orderbon
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ContactDetailPage : ContentPage
 	{
-		public ContactDetailPage (Contact contact)
+        private bool changed;
+
+        public ContactDetailPage (Contact contact)
 		{
             if (contact == null)
                 throw new ArgumentNullException();
@@ -20,6 +22,26 @@ namespace Orderbon
             BindingContext = contact;
 
             InitializeComponent ();
-		}
-	}
+
+            changed = false;
+        }
+
+        async private void Save_Activated(object sender, EventArgs e)
+        {
+            var contact = BindingContext as Contact;
+
+            if ((contact.Name == null) || (contact.Name == ""))
+            {
+                await DisplayAlert("Fout", "Naam mag niet ledig zijn.", "OK");
+                return;
+            }
+
+            await Navigation.PopAsync();
+        }
+
+        private void Entry_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            changed = true;
+        }
+    }
 }
