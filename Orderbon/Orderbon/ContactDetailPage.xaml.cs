@@ -39,7 +39,7 @@ namespace Orderbon
                 return;
             }
 
-            await Navigation.PopAsync();
+            await Navigation.PopModalAsync();
         }
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
@@ -51,7 +51,7 @@ namespace Orderbon
         {
             Device.BeginInvokeOnMainThread(async () => {
                 var result = await this.DisplayAlert("Alert!", "Do you really want to exit?", "Yes", "No");
-                if (result) await this.Navigation.PopAsync(); // or anything else
+                if (result) await this.Navigation.PopModalAsync(); // or anything else
             });
 
             return true;

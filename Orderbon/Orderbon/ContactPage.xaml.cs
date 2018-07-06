@@ -29,7 +29,7 @@ namespace Orderbon
                 return;
 
             var contact = e.SelectedItem as Contact;
-            await Navigation.PushAsync(new ContactDetailPage(contact));
+            await Navigation.PushModalAsync(new ContactDetailPage(contact));
             MyListView.SelectedItem = null;
         }
 
