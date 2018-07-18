@@ -16,6 +16,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Common\ISQLiteDb.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Contact.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ContactDetailPage.xaml.cs">
       <DependentUpon>ContactDetailPage.xaml</DependentUpon>

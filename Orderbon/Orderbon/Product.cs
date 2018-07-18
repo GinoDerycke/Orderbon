@@ -1,4 +1,5 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
@@ -18,8 +19,10 @@ namespace Orderbon
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
+        [MaxLength(255)]
         public string Name
         {
             get { return _name; }
@@ -34,6 +37,7 @@ namespace Orderbon
 
         }
 
+        [MaxLength(255)]
         public string Code
         {
             get { return _code; }
@@ -48,6 +52,7 @@ namespace Orderbon
 
         }
 
+        [MaxLength(255)]
         public string Group
         {
             get { return _group; }
@@ -62,6 +67,7 @@ namespace Orderbon
 
         }
 
+        [MaxLength(255)]
         public string Supplier
         {
             get { return _supplier; }
@@ -76,6 +82,7 @@ namespace Orderbon
 
         }
 
+        [MaxLength(255)]
         public string Unit
         {
             get { return _unit; }

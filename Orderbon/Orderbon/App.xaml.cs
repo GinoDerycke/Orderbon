@@ -80,6 +80,10 @@ namespace Orderbon
 		{
 			InitializeComponent();
 
+            var sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
+            sqlConnection.CreateTableAsync<Product>();
+
             LoadContacts();
             LoadProducts(); 
             LoadOrders();
