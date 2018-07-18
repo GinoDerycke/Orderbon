@@ -1,6 +1,9 @@
+using SQLite;
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Threading.Tasks;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
@@ -14,6 +17,9 @@ namespace Orderbon
         public ObservableCollection<Order> Orders { get; set; }
         public ObservableCollection<OrderWithContact> OrderWithContacts { get; set; }
 
+        public SQLiteAsyncConnection sqlConnection;
+        public List<Product> tableProducts;
+
         private void LoadContacts()
         {
             Contacts = new ObservableCollection<Contact>
@@ -23,9 +29,38 @@ namespace Orderbon
             };
         }
 
-        private void LoadProducts()
+        async private Task<bool> LoadProducts()
         {
-            Products = new ObservableCollection<Product>
+            await sqlConnection.DropTableAsync<Product>(); //Verwijderen
+            await sqlConnection.CreateTableAsync<Product>();
+            tableProducts = await sqlConnection.Table<Product>().ToListAsync();
+
+            tableProducts.Clear(); //Verwijderen
+
+            Products = new ObservableCollection<Product>(tableProducts);
+            
+            if (Products.Count == 0)
+            {
+                var product = new Product
+                {
+                    Name = "tegenmoer M12",
+                    Code = "+6",
+                    Group = "",
+                    Supplier = "",
+                    SellingPriceExclVAT = 0.14,
+                    Unit = "stuks",
+                    Stock = 0,
+                    Reserved = 0
+                };
+
+                Products.Add(product);
+                await sqlConnection.InsertAsync(product);
+            }
+
+
+            return true;
+
+            /*
             {
                 new Product { Id = 1,
                     Name = "tegenmoer M12",
@@ -46,6 +81,10 @@ namespace Orderbon
                     Stock = 0,
                     Reserved = 0 }
             };
+            */
+
+            if (tableProducts == null)
+                throw new ArgumentNullException();
         }
 
         private void LoadOrders()
@@ -79,23 +118,26 @@ namespace Orderbon
         public App ()
 		{
 			InitializeComponent();
+        }
 
-            var sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
-
-            sqlConnection.CreateTableAsync<Product>();
+		protected override async void OnStart ()
+		{
+            // Handle when your app starts
+            sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
             LoadContacts();
-            LoadProducts(); 
+            await LoadProducts();
             LoadOrders();
             LoadOrderWithContacts();
 
-            MainPage = new MainPage();
-        }
+            if (tableProducts == null)
+                throw new ArgumentNullException();
 
-		protected override void OnStart ()
-		{
-			// Handle when your app starts
-		}
+            MainPage = new MainPage();
+
+           // if (tableProducts == null)
+           //     throw new ArgumentNullException();
+        }
 
 		protected override void OnSleep ()
 		{

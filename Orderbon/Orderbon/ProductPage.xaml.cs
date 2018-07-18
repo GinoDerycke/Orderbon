@@ -38,5 +38,17 @@ namespace Orderbon
         {
 
         }
+
+        async private void Add_Clicked(object sender, EventArgs e)
+        {
+            var product = new Product();
+
+            await Navigation.PushAsync(new ProductDetailPage(product));
+
+            if (product.Name != "")
+            {
+                Items.Add(product);
+            }
+        }
     }
 }
