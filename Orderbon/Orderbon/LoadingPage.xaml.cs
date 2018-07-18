@@ -3,19 +3,20 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
 
 namespace Orderbon
 {
-    [XamlCompilation(XamlCompilationOptions.Compile)]
-    public partial class MainPage : TabbedPage
-    {
-        public MainPage()
-        {
-            InitializeComponent();
-        }
+	[XamlCompilation(XamlCompilationOptions.Compile)]
+	public partial class LoadingPage : ContentPage
+	{
+		public LoadingPage ()
+		{
+			InitializeComponent ();
+		}
 
         protected override async void OnAppearing()
         {
@@ -49,9 +50,13 @@ namespace Orderbon
                 await connection.InsertAsync(product);
             }
 
-            (productPage.CurrentPage as ProductPage).Items = products;
+            label.Text = "Loaded";
 
             base.OnAppearing();
+
+            await Navigation.PushModalAsync(new MainPage());
         }
+
+
     }
 }

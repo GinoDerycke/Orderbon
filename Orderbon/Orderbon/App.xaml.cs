@@ -17,7 +17,7 @@ namespace Orderbon
         public ObservableCollection<Order> Orders { get; set; }
         public ObservableCollection<OrderWithContact> OrderWithContacts { get; set; }
 
-        public SQLiteAsyncConnection sqlConnection;
+        public SQLiteAsyncConnection SQLConnection;
         public List<Product> tableProducts;
 
         private void LoadContacts()
@@ -31,9 +31,11 @@ namespace Orderbon
 
         async private Task<bool> LoadProducts()
         {
-            await sqlConnection.DropTableAsync<Product>(); //Verwijderen
-            await sqlConnection.CreateTableAsync<Product>();
-            tableProducts = await sqlConnection.Table<Product>().ToListAsync();
+            var _sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
+            await _sqlConnection.DropTableAsync<Product>(); //Verwijderen
+            await _sqlConnection.CreateTableAsync<Product>();
+            tableProducts = await _sqlConnection.Table<Product>().ToListAsync();
 
             tableProducts.Clear(); //Verwijderen
 
@@ -54,7 +56,7 @@ namespace Orderbon
                 };
 
                 Products.Add(product);
-                await sqlConnection.InsertAsync(product);
+                await _sqlConnection.InsertAsync(product);
             }
 
 
@@ -120,23 +122,62 @@ namespace Orderbon
 			InitializeComponent();
         }
 
-		protected override async void OnStart ()
+        protected override void OnStart ()
 		{
+
             // Handle when your app starts
-            sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
+            MainPage = new MainPage();
+            /*_sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
+            await _sqlConnection.CreateTableAsync<Product>();
+            var _products = await _sqlConnection.Table<Product>().ToListAsync();
+
+
+
+            //            sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
             LoadContacts();
-            await LoadProducts();
-            LoadOrders();
+            //await LoadProducts();
+
+
+            //await sqlConnection.DropTableAsync<Test>(); //Verwijderen
+            //            await sqlConnection.CreateTableAsync<Product>();
+            //tableProducts = await sqlConnection.Table<Test>().ToListAsync();
+
+            //           tableProducts.Clear(); //Verwijderen
+
+ /*         Products = new ObservableCollection<Product>(tableProducts);
+
+            if (Products.Count == 0)
+            {
+                var product = new Product
+                {
+                    Name = "tegenmoer M12",
+                    Code = "+6",
+                    Group = "",
+                    Supplier = "",
+                    SellingPriceExclVAT = 0.14,
+                    Unit = "stuks",
+                    Stock = 0,
+                    Reserved = 0
+                };
+
+                Products.Add(product);
+                await sqlConnection.InsertAsync(product);
+            }
+            */
+            /*LoadOrders();
             LoadOrderWithContacts();
 
-            if (tableProducts == null)
-                throw new ArgumentNullException();
-
+           // if (tableProducts == null)
+           //     throw new ArgumentNullException();
+           
             MainPage = new MainPage();
 
            // if (tableProducts == null)
            //     throw new ArgumentNullException();
+           */
         }
 
 		protected override void OnSleep ()

@@ -4,17 +4,17 @@
             xmlns:local="clr-namespace:Orderbon"
             x:Class="Orderbon.MainPage">
   <!--Pages can be added as references or inline-->
-    <NavigationPage Title="Orders" Icon="">
+    <NavigationPage x:Name="orderPage" Title="Orders" Icon="">
         <x:Arguments>
             <local:OrderPage />
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Klanten" Icon="">
+    <NavigationPage x:Name="customerPage" Title="Klanten" Icon="">
         <x:Arguments>
             <local:ContactPage />
         </x:Arguments>
     </NavigationPage>
-    <NavigationPage Title="Artikelen" Icon="">
+    <NavigationPage x:Name="productPage" Title="Artikelen" Icon="">
         <x:Arguments>
             <local:ProductPage />
         </x:Arguments>

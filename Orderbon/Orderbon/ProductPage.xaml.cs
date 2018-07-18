@@ -19,9 +19,9 @@ namespace Orderbon
 		{
 			InitializeComponent ();
 
-            Items = (Application.Current as App).Products;
+           // Items = (Application.Current as App).Products;
 
-            MyListView.ItemsSource = Items;
+           // MyListView.ItemsSource = Items;
         }
 
         async private void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
