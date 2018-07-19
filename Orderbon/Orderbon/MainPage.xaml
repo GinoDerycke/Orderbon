@@ -4,6 +4,7 @@
             xmlns:local="clr-namespace:Orderbon"
             x:Class="Orderbon.MainPage">
   <!--Pages can be added as references or inline-->
+    <!--
     <NavigationPage x:Name="orderPage" Title="Orders" Icon="">
         <x:Arguments>
             <local:OrderPage />
@@ -19,4 +20,5 @@
             <local:ProductPage />
         </x:Arguments>
     </NavigationPage>
+    -->
 </TabbedPage>

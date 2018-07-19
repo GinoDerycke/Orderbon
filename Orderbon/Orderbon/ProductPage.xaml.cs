@@ -19,9 +19,9 @@ namespace Orderbon
 		{
 			InitializeComponent ();
 
-           // Items = (Application.Current as App).Products;
+            Items = (Application.Current as App).Products;
 
-           // MyListView.ItemsSource = Items;
+            MyListView.ItemsSource = Items;
         }
 
         async private void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -30,7 +30,7 @@ namespace Orderbon
                 return;
 
             var product = e.SelectedItem as Product;
-            await Navigation.PushAsync(new ProductDetailPage(product));
+            await Navigation.PushModalAsync(new ProductDetailPage(product));
             MyListView.SelectedItem = null;
         }
 
@@ -39,11 +39,13 @@ namespace Orderbon
 
         }
 
-        async private void Add_Clicked(object sender, EventArgs e)
+        private async void Add_Clicked(object sender, EventArgs e)
         {
             var product = new Product();
 
-            await Navigation.PushAsync(new ProductDetailPage(product));
+            await Navigation.PushModalAsync(new ProductDetailPage(product));
+
+            await DisplayAlert("", "Test.", "OK");
 
             if (product.Name != "")
             {

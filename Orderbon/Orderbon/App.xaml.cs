@@ -37,7 +37,7 @@ namespace Orderbon
             await _sqlConnection.CreateTableAsync<Product>();
             tableProducts = await _sqlConnection.Table<Product>().ToListAsync();
 
-            tableProducts.Clear(); //Verwijderen
+            //tableProducts.Clear(); //Verwijderen
 
             Products = new ObservableCollection<Product>(tableProducts);
             
@@ -117,6 +117,13 @@ namespace Orderbon
 
         }
 
+        async public Task<bool> LoadData()
+        {
+            var res = await LoadProducts();   
+
+            return res;
+        }
+
         public App ()
 		{
 			InitializeComponent();
@@ -128,56 +135,6 @@ namespace Orderbon
             // Handle when your app starts
 
             MainPage = new MainPage();
-            /*_sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
-
-            await _sqlConnection.CreateTableAsync<Product>();
-            var _products = await _sqlConnection.Table<Product>().ToListAsync();
-
-
-
-            //            sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
-
-            LoadContacts();
-            //await LoadProducts();
-
-
-            //await sqlConnection.DropTableAsync<Test>(); //Verwijderen
-            //            await sqlConnection.CreateTableAsync<Product>();
-            //tableProducts = await sqlConnection.Table<Test>().ToListAsync();
-
-            //           tableProducts.Clear(); //Verwijderen
-
- /*         Products = new ObservableCollection<Product>(tableProducts);
-
-            if (Products.Count == 0)
-            {
-                var product = new Product
-                {
-                    Name = "tegenmoer M12",
-                    Code = "+6",
-                    Group = "",
-                    Supplier = "",
-                    SellingPriceExclVAT = 0.14,
-                    Unit = "stuks",
-                    Stock = 0,
-                    Reserved = 0
-                };
-
-                Products.Add(product);
-                await sqlConnection.InsertAsync(product);
-            }
-            */
-            /*LoadOrders();
-            LoadOrderWithContacts();
-
-           // if (tableProducts == null)
-           //     throw new ArgumentNullException();
-           
-            MainPage = new MainPage();
-
-           // if (tableProducts == null)
-           //     throw new ArgumentNullException();
-           */
         }
 
 		protected override void OnSleep ()

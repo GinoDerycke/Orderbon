@@ -40,7 +40,6 @@ namespace Orderbon
             }
 
             await Navigation.PopModalAsync();
-
         }
 
         async private Task<bool> Check_Changed()

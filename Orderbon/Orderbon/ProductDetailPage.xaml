@@ -18,7 +18,7 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <!--<Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
+                                <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
                                 <Entry Grid.Column="1" Grid.Row="0" Placeholder="Naam" Text="{Binding Name}" TextChanged="Entry_TextChanged" />
                                 <Entry Grid.Column="1" Grid.Row="1" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" />
                                 <Entry Grid.Column="1" Grid.Row="2" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" />
@@ -26,7 +26,7 @@
                                 <Entry Grid.Column="1" Grid.Row="4" Placeholder="Eenheid" Text="{Binding Unit}" TextChanged="Entry_TextChanged" />
                                 <Entry Grid.Column="1" Grid.Row="5" Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT}" TextChanged="Entry_TextChanged" />
                                 <Entry Grid.Column="1" Grid.Row="6" Placeholder="Voorraad" Text="{Binding Stock}" TextChanged="Entry_TextChanged" />
-                                <Entry Grid.Column="1" Grid.Row="7" Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" />-->
+                                <Entry Grid.Column="1" Grid.Row="7" Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" />
                             </Grid>
                         </ViewCell>
                     </TableSection>

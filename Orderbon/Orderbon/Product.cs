@@ -139,18 +139,6 @@ namespace Orderbon
 
         }
 
-        public Product()
-        {
-            _name = "";
-            _code = "";
-            _group = "";
-            _supplier = "";
-            _unit = "";
-            _sellingPriceExclVAT = 0.0;
-            _stock = 0;
-            _reserved = 0;
-        }
-
         private void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

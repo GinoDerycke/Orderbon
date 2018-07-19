@@ -12,45 +12,28 @@ namespace Orderbon
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class MainPage : TabbedPage
     {
+        private bool FirstTime;
+        
         public MainPage()
         {
             InitializeComponent();
+
+            FirstTime = true;
         }
 
         protected override async void OnAppearing()
         {
-            (Application.Current as App).SQLConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
-            var connection = (Application.Current as App).SQLConnection;
-
-            await connection.DropTableAsync<Product>(); //Verwijderen
-            await connection.CreateTableAsync<Product>();
-
-            (Application.Current as App).tableProducts = await connection.Table<Product>().ToListAsync();
-            var table = (Application.Current as App).tableProducts;
-
-            (Application.Current as App).Products = new ObservableCollection<Product>(table);
-            var products = (Application.Current as App).Products;
-
-            if (products.Count == 0)
+            if (FirstTime)
             {
-                var product = new Product
-                {
-                    Name = "tegenmoer M12",
-                    Code = "+6",
-                    Group = "",
-                    Supplier = "",
-                    SellingPriceExclVAT = 0.14,
-                    Unit = "stuks",
-                    Stock = 0,
-                    Reserved = 0
-                };
+                await (Application.Current as App).LoadData();
 
-                products.Add(product);
-                await connection.InsertAsync(product);
-            }
+                this.Children.Add(new NavigationPage(new OrderPage()) { Title = "Orders" });
+                this.Children.Add(new NavigationPage(new ContactPage()) { Title = "Klanten" });
+                this.Children.Add(new NavigationPage(new ProductPage()) { Title = "Artikelen" });
 
-            (productPage.CurrentPage as ProductPage).Items = products;
-
+                FirstTime = false;
+            };
+           
             base.OnAppearing();
         }
     }
