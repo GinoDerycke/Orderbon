@@ -15,8 +15,11 @@ namespace Orderbon
         public OrderPage()
 		{
 			InitializeComponent();
+        }
 
-            Items = (Application.Current as App).OrderWithContacts;
+        public void SetItems(ObservableCollection<OrderWithContact> items)
+        {
+            Items = items;
 
             MyListView.ItemsSource = Items;
         }

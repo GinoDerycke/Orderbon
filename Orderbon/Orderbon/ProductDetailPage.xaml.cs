@@ -39,6 +39,9 @@ namespace Orderbon
                 return;
             }
 
+            await (Application.Current as App).SQLConnection.InsertAsync(product);
+            (Application.Current as App).Products.Add(product);
+
             await Navigation.PopModalAsync();
         }
 

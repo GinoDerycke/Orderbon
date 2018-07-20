@@ -18,8 +18,11 @@ namespace Orderbon
         public ProductPage ()
 		{
 			InitializeComponent ();
+        }
 
-            Items = (Application.Current as App).Products;
+        public void SetItems(ObservableCollection<Product> items)
+        {
+            Items = items;
 
             MyListView.ItemsSource = Items;
         }
@@ -44,13 +47,6 @@ namespace Orderbon
             var product = new Product();
 
             await Navigation.PushModalAsync(new ProductDetailPage(product));
-
-            await DisplayAlert("", "Test.", "OK");
-
-            if (product.Name != "")
-            {
-                Items.Add(product);
-            }
         }
     }
 }

@@ -31,11 +31,11 @@ namespace Orderbon
 
         async private Task<bool> LoadProducts()
         {
-            var _sqlConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
+            SQLConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
 
-            await _sqlConnection.DropTableAsync<Product>(); //Verwijderen
-            await _sqlConnection.CreateTableAsync<Product>();
-            tableProducts = await _sqlConnection.Table<Product>().ToListAsync();
+            //await _sqlConnection.DropTableAsync<Product>(); //Verwijderen
+            await SQLConnection.CreateTableAsync<Product>();
+            tableProducts = await SQLConnection.Table<Product>().ToListAsync();
 
             //tableProducts.Clear(); //Verwijderen
 
@@ -56,7 +56,7 @@ namespace Orderbon
                 };
 
                 Products.Add(product);
-                await _sqlConnection.InsertAsync(product);
+                await SQLConnection.InsertAsync(product);
             }
 
 

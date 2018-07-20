@@ -13,11 +13,11 @@ namespace Orderbon
     public partial class MainPage : TabbedPage
     {
         private bool FirstTime;
-        
+
         public MainPage()
         {
             InitializeComponent();
-
+                
             FirstTime = true;
         }
 
@@ -27,9 +27,9 @@ namespace Orderbon
             {
                 await (Application.Current as App).LoadData();
 
-                this.Children.Add(new NavigationPage(new OrderPage()) { Title = "Orders" });
-                this.Children.Add(new NavigationPage(new ContactPage()) { Title = "Klanten" });
-                this.Children.Add(new NavigationPage(new ProductPage()) { Title = "Artikelen" });
+                (NavOrderPage.RootPage as OrderPage).SetItems((Application.Current as App).OrderWithContacts);
+                (NavCustomerPage.RootPage as ContactPage).SetItems((Application.Current as App).Contacts);
+                (NavProductPage.RootPage as ProductPage).SetItems((Application.Current as App).Products);
 
                 FirstTime = false;
             };
