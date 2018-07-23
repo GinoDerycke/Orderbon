@@ -1,22 +1,22 @@
-﻿using System;
+﻿using SQLite;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Text;
-using Xamarin.Forms;
 
 namespace Orderbon
 {
     public class Contact : INotifyPropertyChanged
     {
-
         private string _name;
-        private string _code;
-        private string _group;
+        private bool _deleted = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
+        [PrimaryKey, AutoIncrement]
         public int Id { get; set; }
 
+        [MaxLength(255)]
         public string Name
         {
             get { return _name; }
@@ -31,30 +31,24 @@ namespace Orderbon
 
         }
 
-        public string Code
-        {
-            get { return _code; }
-            set
-            {
-                if (_code != value)
-                {
-                    _code = value;
-                    OnPropertyChanged(nameof(Code));
-                }
-            }
+        [MaxLength(255)]
+        public string Code { get; set; }
 
-        }
+        [MaxLength(255)]
         public string Phone { get; set; }
 
-        public string Group
+        [MaxLength(255)]
+        public string Group { get; set; }
+
+        public bool Deleted
         {
-            get { return _group; }
+            get { return _deleted; }
             set
             {
-                if (_group != value)
+                if (_deleted != value)
                 {
-                    _group = value;
-                    OnPropertyChanged(nameof(Group));
+                    _deleted = value;
+                    OnPropertyChanged(nameof(Deleted));
                 }
             }
 
@@ -64,6 +58,15 @@ namespace Orderbon
         {
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        public void Copy(Contact DestContact)
+        {
+            DestContact.Name = Name;
+            DestContact.Code = Code;
+            DestContact.Phone = Phone;
+            DestContact.Group = Group;
+            DestContact.Deleted = Deleted;
         }
     }
 }

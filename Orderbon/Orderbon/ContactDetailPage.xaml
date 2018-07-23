@@ -6,9 +6,9 @@
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal">
-                <Button Text="X" HorizontalOptions="Start" Clicked="Cancel_Clicked" />
-                <Button Text="Bewaren" HorizontalOptions="End" Clicked="Save_Clicked" />
+            <StackLayout Orientation="Horizontal" BackgroundColor="LightBlue">
+                <Button Text="Terug" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="LightBlue"/>
+                <Button Text="Bewaren" HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="LightBlue"/>
             </StackLayout>
             <TableView Intent="Form" HasUnevenRows="True">
                 <TableRoot>

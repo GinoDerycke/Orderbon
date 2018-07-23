@@ -18,75 +18,25 @@ namespace Orderbon
         public ObservableCollection<OrderWithContact> OrderWithContacts { get; set; }
 
         public SQLiteAsyncConnection SQLConnection;
-        public List<Product> tableProducts;
 
-        private void LoadContacts()
+        async private Task<bool> LoadContacts()
         {
-            Contacts = new ObservableCollection<Contact>
-            {
-                new Contact { Id = 1, Name = "Gino Derycke", Code = "Gino", Group = "None", Phone = "+32 494 440 421" },
-                new Contact { Id = 2, Name = "Sharon Missinne", Code = "Sharon", Group = "None", Phone = "+32 494 447 127" }
-            };
+            await SQLConnection.CreateTableAsync<Contact>();
+            List<Contact> Table = await SQLConnection.Table<Contact>().ToListAsync();
+
+            Contacts = new ObservableCollection<Contact>(Table);
+
+            return true;
         }
 
         async private Task<bool> LoadProducts()
         {
-            SQLConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
-
-            //await _sqlConnection.DropTableAsync<Product>(); //Verwijderen
             await SQLConnection.CreateTableAsync<Product>();
-            tableProducts = await SQLConnection.Table<Product>().ToListAsync();
+            List<Product> Table = await SQLConnection.Table<Product>().ToListAsync();
 
-            //tableProducts.Clear(); //Verwijderen
-
-            Products = new ObservableCollection<Product>(tableProducts);
+            Products = new ObservableCollection<Product>(Table);
             
-            if (Products.Count == 0)
-            {
-                var product = new Product
-                {
-                    Name = "tegenmoer M12",
-                    Code = "+6",
-                    Group = "",
-                    Supplier = "",
-                    SellingPriceExclVAT = 0.14,
-                    Unit = "stuks",
-                    Stock = 0,
-                    Reserved = 0
-                };
-
-                Products.Add(product);
-                await SQLConnection.InsertAsync(product);
-            }
-
-
             return true;
-
-            /*
-            {
-                new Product { Id = 1,
-                    Name = "tegenmoer M12",
-                    Code = "+6",
-                    Group = "",
-                    Supplier = "",
-                    SellingPriceExclVAT = 0.14,
-                    Unit = "stuks",
-                    Stock = 0,
-                    Reserved = 0 },
-                 new Product { Id = 2,
-                    Name = "plc  220v rel  output",
-                    Code = "6ES7-212-1BB23-0XB0",
-                    Group = "",
-                    Supplier = "Siemens",
-                    SellingPriceExclVAT = 341.55,
-                    Unit = "stuks",
-                    Stock = 0,
-                    Reserved = 0 }
-            };
-            */
-
-            if (tableProducts == null)
-                throw new ArgumentNullException();
         }
 
         private void LoadOrders()
@@ -119,7 +69,9 @@ namespace Orderbon
 
         async public Task<bool> LoadData()
         {
-            var res = await LoadProducts();   
+            SQLConnection = DependencyService.Get<ISQLiteDb>().GetConnection();
+
+            var res = (await LoadProducts()) && (await LoadContacts());
 
             return res;
         }
@@ -131,7 +83,6 @@ namespace Orderbon
 
         protected override void OnStart ()
 		{
-
             // Handle when your app starts
 
             MainPage = new MainPage();

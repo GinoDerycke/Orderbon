@@ -9,13 +9,7 @@ namespace Orderbon
     public class Product : INotifyPropertyChanged
     {
         private string _name;
-        private string _code;
-        private string _group;
-        private string _supplier;
-        private string _unit;
-        private double _sellingPriceExclVAT;
-        private int _stock;
-        private int _reserved;
+        private bool _deleted = false;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -38,106 +32,22 @@ namespace Orderbon
         }
 
         [MaxLength(255)]
-        public string Code
-        {
-            get { return _code; }
-            set
-            {
-                if (_code != value)
-                {
-                    _code = value;
-                    OnPropertyChanged(nameof(Code));
-                }
-            }
-
-        }
+        public string Code { get; set; }
 
         [MaxLength(255)]
-        public string Group
-        {
-            get { return _group; }
-            set
-            {
-                if (_group != value)
-                {
-                    _group = value;
-                    OnPropertyChanged(nameof(Group));
-                }
-            }
-
-        }
+        public string Group { get; set; }
 
         [MaxLength(255)]
-        public string Supplier
-        {
-            get { return _supplier; }
-            set
-            {
-                if (_supplier != value)
-                {
-                    _supplier = value;
-                    OnPropertyChanged(nameof(Supplier));
-                }
-            }
-
-        }
+        public string Supplier { get; set; }
 
         [MaxLength(255)]
-        public string Unit
-        {
-            get { return _unit; }
-            set
-            {
-                if (_unit != value)
-                {
-                    _unit = value;
-                    OnPropertyChanged(nameof(Unit));
-                }
-            }
+        public string Unit { get; set; }
 
-        }
+        public double SellingPriceExclVAT { get; set; }
 
-        public double SellingPriceExclVAT
-        {
-            get { return _sellingPriceExclVAT; }
-            set
-            {
-                if (_sellingPriceExclVAT != value)
-                {
-                    _sellingPriceExclVAT = value;
-                    OnPropertyChanged(nameof(SellingPriceExclVAT));
-                }
-            }
+        public int Stock { get; set; }
 
-        }
-
-        public int Stock
-        {
-            get { return _stock; }
-            set
-            {
-                if (_stock != value)
-                {
-                    _stock = value;
-                    OnPropertyChanged(nameof(Stock));
-                }
-            }
-
-        }
-
-        public int Reserved
-        {
-            get { return _reserved; }
-            set
-            {
-                if (_reserved != value)
-                {
-                    _reserved = value;
-                    OnPropertyChanged(nameof(Reserved));
-                }
-            }
-
-        }
+        public int Reserved { get; set; }
 
         private void OnPropertyChanged(string propertyName)
         {
@@ -145,16 +55,31 @@ namespace Orderbon
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
 
+        public bool Deleted
+        {
+            get { return _deleted; }
+            set
+            {
+                if (_deleted != value)
+                {
+                    _deleted = value;
+                    OnPropertyChanged(nameof(Deleted));
+                }
+            }
+
+        }
+
         public void Copy(Product DestProduct)
         {
-            DestProduct.Name = _name;
-            DestProduct.Code = _code;
-            DestProduct.Group = _group;
-            DestProduct.Supplier = _supplier;
-            DestProduct.Unit = _unit;
-            DestProduct.SellingPriceExclVAT = _sellingPriceExclVAT;
-            DestProduct.Stock = _stock;
-            DestProduct.Reserved = _reserved;
+            DestProduct.Name = Name;
+            DestProduct.Code = Code;
+            DestProduct.Group = Group;
+            DestProduct.Supplier = Supplier;
+            DestProduct.Unit = Unit;
+            DestProduct.SellingPriceExclVAT = SellingPriceExclVAT;
+            DestProduct.Stock = Stock;
+            DestProduct.Reserved = Reserved;
+            DestProduct.Deleted = Deleted;
         }
     }
 }

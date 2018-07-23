@@ -15,15 +15,17 @@ namespace Orderbon
         private bool Changed;
         private bool New;
         private Product OriProduct;
+        private ProductPage _productPage;
 
-        public ProductDetailPage (Product product)
+        public ProductDetailPage(Product product, ProductPage productPage)
 		{
             if (product == null)
                 throw new ArgumentNullException();
 
             BindingContext = product;
+            _productPage = productPage;
 
-            InitializeComponent ();
+            InitializeComponent();
 
             Changed = false;
 
@@ -47,6 +49,7 @@ namespace Orderbon
             {
                 await (Application.Current as App).SQLConnection.InsertAsync(product);
                 (Application.Current as App).Products.Add(product);
+                _productPage.RefreshListView();
             }
             else
                 await (Application.Current as App).SQLConnection.UpdateAsync(product);
@@ -81,7 +84,7 @@ namespace Orderbon
                     await DoSave(product);
                 }
                 else
-                    OriProduct.Copy(product);
+                    if (OriProduct != null) OriProduct.Copy(product);
             }
 
             return true;

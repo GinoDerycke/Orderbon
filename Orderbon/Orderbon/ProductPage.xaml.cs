@@ -20,11 +20,16 @@ namespace Orderbon
 			InitializeComponent ();
         }
 
+        public void RefreshListView()
+        {
+            MyListView.ItemsSource = Items.Where(p => p.Deleted == false);
+        }
+
         public void SetItems(ObservableCollection<Product> items)
         {
             Items = items;
 
-            MyListView.ItemsSource = Items;
+            RefreshListView();
         }
 
         async private void MyListView_ItemSelected(object sender, SelectedItemChangedEventArgs e)
@@ -33,20 +38,30 @@ namespace Orderbon
                 return;
 
             var product = e.SelectedItem as Product;
-            await Navigation.PushModalAsync(new ProductDetailPage(product));
+            await Navigation.PushModalAsync(new ProductDetailPage(product, this));
             MyListView.SelectedItem = null;
         }
 
-        private void Delete_Clicked(object sender, EventArgs e)
+        async private void Delete_Clicked(object sender, EventArgs e)
         {
+            var menuItem = sender as MenuItem;
 
+            var product = menuItem.CommandParameter as Product;
+
+            var result = await this.DisplayAlert("",  String.Format("Weet je zeker dat je artikel \"{0}\" wilt verwijderen?", product.Name), "Ja", "Nee");
+            if (result)
+            {
+                product.Deleted = true;
+                await (Application.Current as App).SQLConnection.UpdateAsync(product);
+                RefreshListView();
+            }
         }
 
         private async void Add_Clicked(object sender, EventArgs e)
         {
             var product = new Product();
 
-            await Navigation.PushModalAsync(new ProductDetailPage(product));
+            await Navigation.PushModalAsync(new ProductDetailPage(product, this));
         }
     }
 }
