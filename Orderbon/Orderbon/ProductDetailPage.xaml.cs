@@ -12,7 +12,9 @@ namespace Orderbon
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class ProductDetailPage : ContentPage
 	{
-        private bool changed;
+        private bool Changed;
+        private bool New;
+        private Product OriProduct;
 
         public ProductDetailPage (Product product)
 		{
@@ -23,10 +25,33 @@ namespace Orderbon
 
             InitializeComponent ();
 
-            changed = false;
+            Changed = false;
 
             if (product.Name == null)
+            {
                 Title = "Nieuw artikel";
+                New = true;
+            }
+            else
+            {
+                New = false;
+                OriProduct = new Product();
+                product.Copy(OriProduct);
+            }
+                
+        }
+
+        async private Task<bool> DoSave(Product product)
+        {
+            if (New)
+            {
+                await (Application.Current as App).SQLConnection.InsertAsync(product);
+                (Application.Current as App).Products.Add(product);
+            }
+            else
+                await (Application.Current as App).SQLConnection.UpdateAsync(product);
+
+            return true;
         }
 
         async private void Save_Clicked(object sender, EventArgs e)
@@ -39,18 +64,24 @@ namespace Orderbon
                 return;
             }
 
-            await (Application.Current as App).SQLConnection.InsertAsync(product);
-            (Application.Current as App).Products.Add(product);
+            await DoSave(product);
 
             await Navigation.PopModalAsync();
         }
 
         async private Task<bool> Check_Changed()
         {
-            if (changed)
+            var product = BindingContext as Product;
+
+            if (Changed)
             {
                 var result = await this.DisplayAlert("", "De wijzigingen zijn niet opgeslagen.", "Opslaan", "Niet opslaan");
-                if (result) await this.Navigation.PopModalAsync();
+                if (result)
+                {
+                    await DoSave(product);
+                }
+                else
+                    OriProduct.Copy(product);
             }
 
             return true;
@@ -65,7 +96,7 @@ namespace Orderbon
 
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
-            changed = true;
+            Changed = true;
         }
 
         protected override bool OnBackButtonPressed()

@@ -144,5 +144,17 @@ namespace Orderbon
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public void Copy(Product DestProduct)
+        {
+            DestProduct.Name = _name;
+            DestProduct.Code = _code;
+            DestProduct.Group = _group;
+            DestProduct.Supplier = _supplier;
+            DestProduct.Unit = _unit;
+            DestProduct.SellingPriceExclVAT = _sellingPriceExclVAT;
+            DestProduct.Stock = _stock;
+            DestProduct.Reserved = _reserved;
+        }
     }
 }
