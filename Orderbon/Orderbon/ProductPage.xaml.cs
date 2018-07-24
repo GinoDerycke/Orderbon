@@ -20,9 +20,12 @@ namespace Orderbon
 			InitializeComponent ();
         }
 
-        public void RefreshListView()
+        public void RefreshListView(string searchText = null)
         {
-            MyListView.ItemsSource = Items.Where(p => p.Deleted == false);
+            if (String.IsNullOrWhiteSpace(searchText))
+                MyListView.ItemsSource = Items.Where(p => p.Deleted == false);
+            else
+                MyListView.ItemsSource = Items.Where(p => (p.Deleted == false) && (p.Name.StartsWith(searchText)));
         }
 
         public void SetItems(ObservableCollection<Product> items)
@@ -62,6 +65,11 @@ namespace Orderbon
             var product = new Product();
 
             await Navigation.PushModalAsync(new ProductDetailPage(product, this));
+        }
+
+        private void MySearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RefreshListView(e.NewTextValue);
         }
     }
 }
