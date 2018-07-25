@@ -25,7 +25,7 @@ namespace Orderbon
             if (String.IsNullOrWhiteSpace(searchText))
                 MyListView.ItemsSource = Items.Where(p => p.Deleted == false);
             else
-                MyListView.ItemsSource = Items.Where(p => (p.Deleted == false) && (p.Name.StartsWith(searchText)));
+                MyListView.ItemsSource = Items.Where(p => (p.Deleted == false) && (p.Name.StartsWith(searchText, true, null)));
         }
 
         public void SetItems(ObservableCollection<Product> items)

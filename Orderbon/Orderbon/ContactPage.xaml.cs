@@ -19,9 +19,12 @@ namespace Orderbon
             InitializeComponent();
         }
 
-        public void RefreshListView()
+        public void RefreshListView(string searchText = null)
         {
-            MyListView.ItemsSource = Items.Where(c => c.Deleted == false);
+            if (String.IsNullOrWhiteSpace(searchText))
+                MyListView.ItemsSource = Items.Where(c => c.Deleted == false);
+            else
+                MyListView.ItemsSource = Items.Where(c => (c.Deleted == false) && (c.Name.StartsWith(searchText, true, null)));
         }
 
         public void SetItems(ObservableCollection<Contact> items)
@@ -61,6 +64,11 @@ namespace Orderbon
             var contact = new Contact();
 
             await Navigation.PushModalAsync(new ContactDetailPage(contact, this));
+        }
+
+        private void MySearchBar_TextChanged(object sender, TextChangedEventArgs e)
+        {
+            RefreshListView(e.NewTextValue);
         }
     }
 }
