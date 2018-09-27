@@ -30,7 +30,7 @@ namespace Orderbon
                 return;
             
             var orderWithContact = e.SelectedItem as OrderWithContact;
-            await Navigation.PushAsync(new OrderDetailPage(orderWithContact));
+            await Navigation.PushAsync(new OrderDetailPage(orderWithContact, this));
             MyListView.SelectedItem = null;
         }
 
@@ -42,6 +42,13 @@ namespace Orderbon
         private void Delete_Clicked(object sender, EventArgs e)
         {
 
+        }
+
+        async private void Add_Clicked(object sender, EventArgs e)
+        {
+            var orderWithContact = new OrderWithContact();
+
+            await Navigation.PushModalAsync(new OrderDetailPage(orderWithContact, this));
         }
     }
 }

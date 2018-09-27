@@ -12,7 +12,7 @@ namespace Orderbon
 	[XamlCompilation(XamlCompilationOptions.Compile)]
 	public partial class OrderDetailPage : ContentPage
 	{
-		public OrderDetailPage(OrderWithContact orderWithContact)
+        public OrderDetailPage(OrderWithContact orderWithContact, OrderPage orderPage)
 		{
             if (orderWithContact == null)
                 throw new ArgumentNullException();
