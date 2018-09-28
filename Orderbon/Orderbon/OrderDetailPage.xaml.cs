@@ -22,5 +22,30 @@ namespace Orderbon
             InitializeComponent ();
         }
 
+
+        async private void Save_Clicked(object sender, EventArgs e)
+        {
+            /*
+             * var product = BindingContext as Product;
+
+            if ((product.Name == null) || (product.Name == ""))
+            {
+                await DisplayAlert("Invoerfout", "Naam mag niet ledig zijn.", "OK");
+                return;
+            }
+
+            await DoSave(product);
+            */
+
+            await Navigation.PopModalAsync();
+        }
+
+        async private void Cancel_Clicked(object sender, EventArgs e)
+        {
+            //await Check_Changed();
+
+            await Navigation.PopModalAsync();
+        }
+
     }
 }
