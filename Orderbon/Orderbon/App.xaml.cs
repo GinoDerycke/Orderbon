@@ -46,6 +46,8 @@ namespace Orderbon
 
             Orders = new ObservableCollection<Order>(Table);
 
+            foreach (Order order in Orders) { order.SetContacts(Contacts); }
+
             return true;
         }
 

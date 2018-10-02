@@ -10,14 +10,14 @@ namespace Orderbon
 {
 	public partial class OrderPage : ContentPage
 	{
-        private ObservableCollection<OrderWithContact> Items { get; set; }
+        private ObservableCollection<Order> Items { get; set; }
 
         public OrderPage()
 		{
 			InitializeComponent();
         }
 
-        public void SetItems(ObservableCollection<OrderWithContact> items)
+        public void SetItems(ObservableCollection<Order> items)
         {
             Items = items;
 
@@ -29,8 +29,8 @@ namespace Orderbon
             if (e.SelectedItem == null)
                 return;
             
-            var orderWithContact = e.SelectedItem as OrderWithContact;
-            await Navigation.PushAsync(new OrderDetailPage(orderWithContact, this));
+            var order = e.SelectedItem as Order;
+            await Navigation.PushAsync(new OrderDetailPage(order, this));
             MyListView.SelectedItem = null;
         }
 
@@ -46,9 +46,10 @@ namespace Orderbon
 
         async private void Add_Clicked(object sender, EventArgs e)
         {
-            var orderWithContact = new OrderWithContact();
+            var order = new Order();
+            order.SetContacts((Application.Current as App).Contacts);
 
-            await Navigation.PushModalAsync(new OrderDetailPage(orderWithContact, this));
+            await Navigation.PushModalAsync(new OrderDetailPage(order, this));
         }
     }
 }

@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Text;
+using System.Linq;
 
 namespace Orderbon
 {
@@ -12,7 +13,8 @@ namespace Orderbon
         private string _title;
         private string _date;
         private bool _deleted = false;
-        private Contact _contact;
+        private int _contactId;
+        private ObservableCollection<Contact> _contacts;
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -51,14 +53,16 @@ namespace Orderbon
 
         public int ContactId
         {
-            get
-            {
-                ...
-            }
+            get { return _contactId; }
             set
             {
-                ...
+                if (_contactId != value)
+                {
+                    _contactId = value;
+                    OnPropertyChanged(nameof(ContactId));
+                }
             }
+
         }
 
         public bool Deleted
@@ -78,14 +82,21 @@ namespace Orderbon
         [Ignore]
         public Contact Contact
         {
-            get { return _contact; }
-            set
+            get
             {
-                ...
+                if (_contacts != null)
+                    return _contacts.Where(c => (c.Id == ContactId)) as Contact;
+                else 
+                    throw new ArgumentNullException();
             }
+            set { ContactId = Contact.Id; }
         }
-            
 
+        public void SetContacts(ObservableCollection<Contact> Contacts)
+        {
+            _contacts = Contacts;
+        }
+        
         private void OnPropertyChanged(string propertyName)
         {
             if (PropertyChanged != null)

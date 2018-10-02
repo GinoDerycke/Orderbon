@@ -27,7 +27,7 @@ namespace Orderbon
             {
                 await (Application.Current as App).LoadData();
 
-                (NavOrderPage.RootPage as OrderPage).SetItems((Application.Current as App).OrderWithContacts);
+                (NavOrderPage.RootPage as OrderPage).SetItems((Application.Current as App).Orders);
                 (NavCustomerPage.RootPage as ContactPage).SetItems((Application.Current as App).Contacts);
                 (NavProductPage.RootPage as ProductPage).SetItems((Application.Current as App).Products);
 
