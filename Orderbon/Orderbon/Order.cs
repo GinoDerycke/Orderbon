@@ -86,9 +86,8 @@ namespace Orderbon
             {
                 if (_contacts != null)
                 {
-                    //Contact contact = _contacts.Where(c => (c.Id == ContactId)) as Contact;
-                    //return contact;
-                    return _contacts.Where(c => (c.Id == 1)) as Contact;
+                    var observable = _contacts.Where(c => (c.Id == ContactId));
+                    return observable.First() as Contact;
 
                 }
                 else
