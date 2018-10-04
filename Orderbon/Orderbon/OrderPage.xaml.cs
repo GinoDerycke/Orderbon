@@ -17,6 +17,14 @@ namespace Orderbon
 			InitializeComponent();
         }
 
+        public void RefreshListView(string searchText = null)
+        {
+            if (String.IsNullOrWhiteSpace(searchText))
+                MyListView.ItemsSource = Items.Where(o => o.Deleted == false);
+            else
+                MyListView.ItemsSource = Items.Where(o => (o.Deleted == false) && (o.Title.StartsWith(searchText, true, null)));
+        }
+
         public void SetItems(ObservableCollection<Order> items)
         {
             Items = items;

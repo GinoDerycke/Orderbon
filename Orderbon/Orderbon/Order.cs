@@ -85,8 +85,13 @@ namespace Orderbon
             get
             {
                 if (_contacts != null)
-                    return _contacts.Where(c => (c.Id == ContactId)) as Contact;
-                else 
+                {
+                    //Contact contact = _contacts.Where(c => (c.Id == ContactId)) as Contact;
+                    //return contact;
+                    return _contacts.Where(c => (c.Id == 1)) as Contact;
+
+                }
+                else
                     throw new ArgumentNullException();
             }
             set { ContactId = Contact.Id; }
