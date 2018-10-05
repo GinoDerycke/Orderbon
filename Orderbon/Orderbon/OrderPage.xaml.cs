@@ -38,7 +38,7 @@ namespace Orderbon
                 return;
             
             var order = e.SelectedItem as Order;
-            await Navigation.PushAsync(new OrderDetailPage(order, this));
+            await Navigation.PushModalAsync(new OrderDetailPage(order, this));
             MyListView.SelectedItem = null;
         }
 

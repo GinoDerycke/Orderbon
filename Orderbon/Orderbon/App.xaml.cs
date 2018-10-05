@@ -15,7 +15,6 @@ namespace Orderbon
         public ObservableCollection<Contact> Contacts { get; set; }
         public ObservableCollection<Product> Products { get; set; }
         public ObservableCollection<Order> Orders { get; set; }
-        public ObservableCollection<OrderWithContact> OrderWithContacts { get; set; }
 
         public SQLiteAsyncConnection SQLConnection;
 
@@ -49,22 +48,6 @@ namespace Orderbon
             foreach (Order order in Orders) { order.SetContacts(Contacts); }
 
             return true;
-        }
-
-        private void LoadOrderWithContacts()
-        {
-            OrderWithContacts = new ObservableCollection<OrderWithContact>();
-
-            /*
-             foreach(Order order in Orders)
-            {
-                OrderWithContact _OrderWithContact = new OrderWithContact();
-                _OrderWithContact._Order = order;
-                _OrderWithContact._Contact = (Contacts.Single(x => x.Id == order.ContactId) as Contact);
-                OrderWithContacts.Add(_OrderWithContact);
-            }
-            */
-
         }
 
         async public Task<bool> LoadData()

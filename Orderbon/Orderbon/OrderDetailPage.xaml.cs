@@ -84,5 +84,15 @@ namespace Orderbon
             await Navigation.PopModalAsync();
         }
 
+        async private void Contact_Focused(object sender, FocusEventArgs e)
+        {
+            Entry entry = e.VisualElement as Entry;
+            entry.Unfocus();
+
+            ContactPage contactPage = new ContactPage();
+            contactPage.SetItems((Application.Current as App).Contacts);
+
+            await Navigation.PushModalAsync(contactPage);
+        }
     }
 }
