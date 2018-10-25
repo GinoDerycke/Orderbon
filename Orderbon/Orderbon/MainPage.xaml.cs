@@ -17,7 +17,28 @@ namespace Orderbon
         public MainPage()
         {
             InitializeComponent();
-                
+
+            OrderPage orderPage = new OrderPage();
+
+            ContactPage contactPage = new ContactPage();
+
+            ProductPage productPage = new ProductPage();
+
+            NavigationPage navOrderPage = new NavigationPage(orderPage);
+            navOrderPage.Title = "Orders";
+
+            NavigationPage navContactPage = new NavigationPage(contactPage);
+            navContactPage.Title = "Klanten";
+
+            NavigationPage navProductPage = new NavigationPage(productPage);
+            navProductPage.Title = "Artikelen";
+
+            TabbedPage tabPage = this.FindByName<TabbedPage>("TabPage");
+
+            tabPage.Children.Add(navOrderPage);
+            tabPage.Children.Add(navContactPage);
+            tabPage.Children.Add(navProductPage);
+
             FirstTime = true;
         }
 
@@ -27,9 +48,19 @@ namespace Orderbon
             {
                 await (Application.Current as App).LoadData();
 
-                (NavOrderPage.RootPage as OrderPage).SetItems((Application.Current as App).Orders);
-                (NavCustomerPage.RootPage as ContactPage).SetItems((Application.Current as App).Contacts);
-                (NavProductPage.RootPage as ProductPage).SetItems((Application.Current as App).Products);
+                TabbedPage tabPage = this.FindByName<TabbedPage>("TabPage");
+
+                OrderPage orderPage = (tabPage.Children[0] as NavigationPage).RootPage as OrderPage;
+                ContactPage contactPage = (tabPage.Children[1] as NavigationPage).RootPage as ContactPage;
+                ProductPage productPage = (tabPage.Children[2] as NavigationPage).RootPage as ProductPage;
+
+                orderPage.SetItems((Application.Current as App).Orders);
+                contactPage.SetItems((Application.Current as App).Contacts);
+                productPage.SetItems((Application.Current as App).Products);
+
+                //(NavOrderPage.RootPage as OrderPage).SetItems((Application.Current as App).Orders);
+                //(NavCustomerPage.RootPage as ContactPage).SetItems((Application.Current as App).Contacts);
+                //(NavProductPage.RootPage as ProductPage).SetItems((Application.Current as App).Products);
 
                 FirstTime = false;
             };

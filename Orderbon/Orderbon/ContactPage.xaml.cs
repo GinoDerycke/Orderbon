@@ -12,11 +12,21 @@ namespace Orderbon
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ContactPage : ContentPage
     {
-        public ObservableCollection<Contact> Items { get; set; }
+        private OrderDetailPage _orderDetailPage;
 
-        public ContactPage()
+        public ObservableCollection<Contact> Items { get; set; }
+               
+        public ContactPage(OrderDetailPage orderDetailPage = null)
         {
             InitializeComponent();
+
+            _orderDetailPage = orderDetailPage;
+
+            if (_orderDetailPage == null)
+            {
+                this.FindByName<StackLayout>("TopBar").IsVisible = false;
+            }
+
         }
 
         public void RefreshListView(string searchText = null)
@@ -40,7 +50,19 @@ namespace Orderbon
                 return;
 
             var contact = e.SelectedItem as Contact;
-            await Navigation.PushModalAsync(new ContactDetailPage(contact, this));
+
+            if (_orderDetailPage == null)
+            {
+                await Navigation.PushModalAsync(new ContactDetailPage(contact, this));
+            }
+            else
+            {
+                Order order = _orderDetailPage.BindingContext as Order;
+                order.ContactId = contact.Id;
+                _orderDetailPage.RefreshContact();
+                await Navigation.PopModalAsync();
+            }
+
             MyListView.SelectedItem = null;
         }
 
@@ -69,6 +91,11 @@ namespace Orderbon
         private void MySearchBar_TextChanged(object sender, TextChangedEventArgs e)
         {
             RefreshListView(e.NewTextValue);
+        }
+
+        async private void Cancel_Clicked(object sender, EventArgs e)
+        {
+            await Navigation.PopModalAsync();
         }
     }
 }

@@ -21,7 +21,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
                                 <Entry Grid.Column="1" Grid.Row="0" Placeholder="Titel" Text="{Binding Title}" />
-                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Klant" Text="{Binding Contact.Name}" Focused="Contact_Focused" />
+                                <Entry x:Name="ContactEntry" Grid.Column="1" Grid.Row="1" Placeholder="Klant" Text="{Binding Contact.Name}" Focused="Contact_Focused" />
                                 <!--<Label Grid.Column="1" Grid.Row="2" Text="{Binding _Order.Date}" />-->
                             </Grid>
                         </ViewCell>

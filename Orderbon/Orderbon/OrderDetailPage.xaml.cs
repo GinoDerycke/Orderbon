@@ -89,10 +89,17 @@ namespace Orderbon
             Entry entry = e.VisualElement as Entry;
             entry.Unfocus();
 
-            ContactPage contactPage = new ContactPage();
+            ContactPage contactPage = new ContactPage(this);
             contactPage.SetItems((Application.Current as App).Contacts);
 
             await Navigation.PushModalAsync(contactPage);
+        }
+
+        public void RefreshContact()
+        {
+            Order order = BindingContext as Order;
+
+            this.FindByName<Entry>("ContactEntry").Text = order.Contact.Name;
         }
     }
 }

@@ -87,13 +87,19 @@ namespace Orderbon
                 if (_contacts != null)
                 {
                     var observable = _contacts.Where(c => (c.Id == ContactId));
-                    return observable.First() as Contact;
-
+                    if (observable.Count() == 1)
+                        return observable.First() as Contact;
+                    else
+                        return null;
                 }
                 else
                     throw new ArgumentNullException();
             }
-            set { ContactId = Contact.Id; }
+            set
+            {
+                ContactId = Contact.Id;
+                OnPropertyChanged(nameof(Contact));
+            }
         }
 
         public void SetContacts(ObservableCollection<Contact> Contacts)
