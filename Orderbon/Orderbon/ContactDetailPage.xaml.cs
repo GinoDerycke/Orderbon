@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Plugin.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -109,6 +110,20 @@ namespace Orderbon
             });
 
             return true;
+        }
+
+        private void Call_Clicked(object sender, EventArgs e)
+        {
+            var phoneDialer = CrossMessaging.Current.PhoneDialer;
+            if (phoneDialer.CanMakePhoneCall)
+                phoneDialer.MakePhoneCall("0494447127");
+        }
+
+        private void Sms_Clicked(object sender, EventArgs e)
+        {
+            var smsMessenger = CrossMessaging.Current.SmsMessenger;
+            if (smsMessenger.CanSendSms)
+                smsMessenger.SendSms("0494447127");
         }
     }
 }

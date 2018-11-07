@@ -6,12 +6,27 @@
              NavigationPage.HasBackButton="False">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal" BackgroundColor="LightBlue">
-                <Button Text="Terug" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="LightBlue"/>
-                <Button Text="Bewaren" HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="LightBlue"/>
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                <Button Text="Terug" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="White"/>
+                <Button Text="Bewaren" HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="White"/>
             </StackLayout>
             <TableView Intent="Form" HasUnevenRows="True">
                 <TableRoot>
+                    <TableSection>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HeightRequest="150" Padding="20,10,20,10">
+                                <Entry Placeholder="Naam" FontSize="Large" FontAttributes="Bold" Text="{Binding Name}" TextChanged="Entry_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
+                    <TableSection>
+                        <ViewCell>
+                            <StackLayout Padding="20,10,20,10" Orientation="Horizontal">
+                                <Button Text="Bel" Clicked="Call_Clicked"/>
+                                <Button Text="Sms" Clicked="Sms_Clicked"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
                     <TableSection>
                         <ViewCell>
                             <Grid Padding="20,10,20,10">
@@ -20,10 +35,9 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
-                                <Entry Grid.Column="1" Grid.Row="0" Placeholder="Naam" Text="{Binding Name}" TextChanged="Entry_TextChanged" />
-                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" />
-                                <Entry Grid.Column="1" Grid.Row="2" Placeholder="Telefoonnummer" Text="{Binding Phone}" TextChanged="Entry_TextChanged" />
-                                <Entry Grid.Column="1" Grid.Row="3" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" />
+                                <Entry Grid.Column="1" Grid.Row="0" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" />
+                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Telefoonnummer" Text="{Binding Phone}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
+                                <Entry Grid.Column="1" Grid.Row="2" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" />
                             </Grid>
                         </ViewCell>
                     </TableSection>
