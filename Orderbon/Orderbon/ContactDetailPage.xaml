@@ -7,8 +7,8 @@
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
             <StackLayout Orientation="Horizontal" BackgroundColor="White">
-                <Button Text="Terug" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="White"/>
-                <Button Text="Bewaren" HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="White"/>
+                <Button Text="Terug" Image="baseline_arrow_back_black_24.png" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="White"/>
+                <Button Text="Bewaren" Image="baseline_done_black_24.png"  HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="White"/>
             </StackLayout>
             <TableView Intent="Form" HasUnevenRows="True">
                 <TableRoot>
@@ -21,9 +21,19 @@
                     </TableSection>
                     <TableSection>
                         <ViewCell>
-                            <StackLayout Padding="20,10,20,10" Orientation="Horizontal">
-                                <Button Text="Bel" Clicked="Call_Clicked"/>
-                                <Button Text="Sms" Clicked="Sms_Clicked"/>
+                            <StackLayout Orientation="Vertical" Padding="20,10,20,10">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Image Grid.Column="0" Grid.Row="0" Source="baseline_phone_black_24.png" VerticalOptions="Center" />
+                                    <Entry Grid.Column="1" Grid.Row="0" Placeholder="Telefoonnummer" Text="{Binding Phone}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
+                                </Grid>
+                                <StackLayout Orientation="Horizontal">
+                                    <Button Text="Bel" Image="baseline_phone_black_24.png" Clicked="Call_Clicked"/>
+                                    <Button Text="Sms" Image="baseline_textsms_black_24.png" Clicked="Sms_Clicked"/>
+                                </StackLayout>
                             </StackLayout>
                         </ViewCell>
                     </TableSection>
@@ -36,8 +46,7 @@
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
                                 <Entry Grid.Column="1" Grid.Row="0" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" />
-                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Telefoonnummer" Text="{Binding Phone}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
-                                <Entry Grid.Column="1" Grid.Row="2" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" />
+                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" />
                             </Grid>
                         </ViewCell>
                     </TableSection>
