@@ -27,6 +27,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ExpandableEditor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MaskedBehavior.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)OrderPage.xaml.cs">
       <DependentUpon>OrderPage.xaml</DependentUpon>
     </Compile>

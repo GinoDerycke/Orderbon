@@ -1,6 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:Core"
              x:Class="Orderbon.ContactDetailPage"
              Title="Klant"
              NavigationPage.HasBackButton="False">
@@ -28,7 +29,11 @@
                                         <ColumnDefinition Width="*" />
                                     </Grid.ColumnDefinitions>
                                     <Image Grid.Column="0" Grid.Row="0" Source="baseline_phone_black_24.png" VerticalOptions="Center" />
-                                    <Entry Grid.Column="1" Grid.Row="0" Placeholder="Telefoonnummer" Text="{Binding Phone}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
+                                    <Entry x:Name="entryPhoneNumber" Grid.Column="1" Grid.Row="0" Placeholder="Telefoonnummer" Text="{Binding Phone}" TextChanged="Entry_TextChanged" Keyboard="Numeric">
+                                        <Entry.Behaviors>
+                                            <local:MaskedBehavior Mask="+XX XXX XX XX XX" />
+                                        </Entry.Behaviors>
+                                    </Entry>
                                 </Grid>
                                 <StackLayout Orientation="Horizontal">
                                     <Button Text="Bel" Image="baseline_phone_black_24.png" Clicked="Call_Clicked"/>

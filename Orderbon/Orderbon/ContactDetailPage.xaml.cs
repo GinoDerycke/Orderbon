@@ -112,18 +112,38 @@ namespace Orderbon
             return true;
         }
 
-        private void Call_Clicked(object sender, EventArgs e)
+        async private void Call_Clicked(object sender, EventArgs e)
         {
+            var entry = this.FindByName<Entry>("entryPhoneNumber");
+            
+            if (String.IsNullOrEmpty(entry.Text))
+            {
+                await DisplayAlert("", "Geen telefoonnummer ingevuld.", "OK");
+                return;
+            }
+
             var phoneDialer = CrossMessaging.Current.PhoneDialer;
             if (phoneDialer.CanMakePhoneCall)
-                phoneDialer.MakePhoneCall("0494447127");
+                phoneDialer.MakePhoneCall(entry.Text);
+            else
+                await DisplayAlert("", "Telefoon niet beschikbaar.", "OK");
         }
 
-        private void Sms_Clicked(object sender, EventArgs e)
+        async private void Sms_Clicked(object sender, EventArgs e)
         {
+            var entry = this.FindByName<Entry>("entryPhoneNumber");
+
+            if (String.IsNullOrEmpty(entry.Text))
+            {
+                await DisplayAlert("", "Geen telefoonnummer ingevuld.", "OK");
+                return;
+            }
+
             var smsMessenger = CrossMessaging.Current.SmsMessenger;
             if (smsMessenger.CanSendSms)
-                smsMessenger.SendSms("0494447127");
+                smsMessenger.SendSms(entry.Text);
+            else
+                await DisplayAlert("", "Telefoon niet beschikbaar.", "OK");
         }
     }
 }

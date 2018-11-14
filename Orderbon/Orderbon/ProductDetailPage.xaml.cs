@@ -96,9 +96,14 @@ namespace Orderbon
 
             await Navigation.PopModalAsync();
         }
-
+        
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
+            //var entryPrice = this.FindByName<Entry>("entryPrice");
+
+            //if ((sender == entryPrice) && (entryPrice.Text.Contains("€") == false))
+            //    entryPrice.Text = e.NewTextValue.ToString() + " €";
+
             Changed = true;
         }
 
