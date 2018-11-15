@@ -112,6 +112,11 @@ namespace Orderbon
             if (PropertyChanged != null)
                 PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
         }
+
+        public Order()
+        {
+            _date = DateTime.Today.ToString("dd/MM/yyyy");
+        }
     }
 
 }

@@ -16,7 +16,7 @@
                     <TableSection>
                         <ViewCell>
                             <StackLayout Orientation="Horizontal" HeightRequest="150" Padding="20,10,20,10">
-                                <Entry Placeholder="Naam" FontSize="Large" FontAttributes="Bold" Text="{Binding Name}" TextChanged="Entry_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="End"/>
+                                <Entry Placeholder="Naam" FontSize="Large" FontAttributes="Bold" Text="{Binding Name}" TextChanged="Entry_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="End" Keyboard="Text"/>
                             </StackLayout>
                         </ViewCell>
                     </TableSection>
@@ -50,8 +50,8 @@
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
                                 <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
-                                <Entry Grid.Column="1" Grid.Row="0" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" />
-                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" />
+                                <Entry Grid.Column="1" Grid.Row="0" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
+                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
                             </Grid>
                         </ViewCell>
                     </TableSection>

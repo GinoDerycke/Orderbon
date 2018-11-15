@@ -6,12 +6,19 @@
              Title="Order">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal" BackgroundColor="LightBlue">
-                <Button Text="Terug" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="LightBlue"/>
-                <Button Text="Bewaren" HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="LightBlue"/>
+            <StackLayout Orientation="Horizontal" BackgroundColor="White">
+                <Button Text="Terug" Image="baseline_arrow_back_black_24.png" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="White"/>
+                <Button Text="Bewaren" Image="baseline_done_black_24.png"  HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="White"/>
             </StackLayout>
             <TableView Intent="Form" HasUnevenRows="True">
                 <TableRoot>
+                    <TableSection>
+                        <ViewCell>
+                            <StackLayout Orientation="Horizontal" HeightRequest="150" Padding="20,10,20,10">
+                                <Entry Placeholder="Titel" FontSize="Large" FontAttributes="Bold" Text="{Binding Title}" HorizontalOptions="FillAndExpand" VerticalOptions="End" Keyboard="Text"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </TableSection>
                     <TableSection>
                         <ViewCell>
                             <Grid Padding="20,10,20,10">
@@ -19,10 +26,10 @@
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
                                 </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
-                                <Entry Grid.Column="1" Grid.Row="0" Placeholder="Titel" Text="{Binding Title}" />
-                                <Entry x:Name="ContactEntry" Grid.Column="1" Grid.Row="1" Placeholder="Klant" Text="{Binding Contact.Name}" Focused="Contact_Focused" />
-                                <!--<Label Grid.Column="1" Grid.Row="2" Text="{Binding _Order.Date}" />-->
+                                <Image Grid.Column="0" Grid.Row="0" Source="baseline_person_black_24.png" VerticalOptions="Center" />
+                                <Entry x:Name="ContactEntry" Grid.Column="1" Grid.Row="0" Placeholder="Klant" Text="{Binding Contact.Name}" Focused="Contact_Focused" />
+                                <Image Grid.Column="0" Grid.Row="1" Source="baseline_today_black_24.png" VerticalOptions="Center" />
+                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Date}" VerticalOptions="Center" />
                             </Grid>
                         </ViewCell>
                     </TableSection>

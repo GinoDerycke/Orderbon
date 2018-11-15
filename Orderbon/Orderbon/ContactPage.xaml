@@ -20,7 +20,7 @@
                                 <Label Text="{Binding Name}" TextColor="Black" Font="Bold,16"/>
                             </StackLayout>
                             <ViewCell.ContextActions>
-                                <MenuItem Text="Delete" Clicked="Delete_Clicked" CommandParameter="{Binding .}" IsDestructive="True"/>
+                                <MenuItem Icon="baseline_delete_black_24" Clicked="Delete_Clicked" CommandParameter="{Binding .}" IsDestructive="True"/>
                             </ViewCell.ContextActions>
                         </ViewCell>
                     </DataTemplate>
