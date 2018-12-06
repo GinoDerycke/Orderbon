@@ -66,19 +66,26 @@
                     </TableSection>
                     <TableSection>
                         <ViewCell>
-                            <Grid Padding="20,10,20,10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                    <ColumnDefinition Width="100" /> 
-                                </Grid.ColumnDefinitions>
-                                <Label Grid.Column="0" Grid.Row="0" Text="1." VerticalOptions="Center"/>
-                                <Label Grid.Column="1" Grid.Row="0" Text="Ledstrip" VerticalOptions="Center"/>
-                                <Entry Grid.Column="2" Grid.Row="0" Keyboard="Numeric" />
-                            </Grid>
+                            <StackLayout Padding="20,10,20,10">
+                                <Grid>
+                                    <Grid.RowDefinitions>
+                                        <RowDefinition Height="Auto"/>
+                                    </Grid.RowDefinitions>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto" />
+                                        <ColumnDefinition Width="*" />
+                                    </Grid.ColumnDefinitions>
+                                    <Label Grid.Column="0" Grid.Row="0" Text="1." VerticalOptions="Center"/>
+                                    <Label Grid.Column="1" Grid.Row="0" Text="Ledstrip" VerticalOptions="Center"/>
+                                </Grid>
+                                <StackLayout Orientation="Horizontal">
+                                    <Button Text="-" WidthRequest="50" HorizontalOptions="Start"/>
+                                    <Entry Text="1" WidthRequest="50" Keyboard="Numeric"/>
+                                    <Button Text="+" WidthRequest="50"/>
+                                    <Label Text="2,00€" />
+                                    <Label Text="6,00€" />
+                                </StackLayout>
+                            </StackLayout>
                         </ViewCell>
                     </TableSection>
                 </TableRoot>
