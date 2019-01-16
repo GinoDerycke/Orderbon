@@ -13,30 +13,46 @@
                 <TableRoot>
                     <TableSection>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" HeightRequest="150" Padding="20,10,20,10">
+                            <!--<StackLayout Orientation="Horizontal" HeightRequest="150" Padding="20,10,20,10">
                                 <Entry Placeholder="Naam" FontSize="Large" FontAttributes="Bold" Text="{Binding Name}" TextChanged="Entry_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="End" Keyboard="Text"/>
-                            </StackLayout>
+                            </StackLayout>-->
+                          <StackLayout Padding="20,10,20,10">
+                            <Label Text="Naam" FontAttributes="Bold" />
+                            <Entry Placeholder="Naam" FontSize="Large" Text="{Binding Name}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Keyboard="Text"/>  
+                          </StackLayout>  
                         </ViewCell>
                     </TableSection>
                     <TableSection>
                         <ViewCell>
-                            <Grid Padding="20,10,20,10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
-                                <Entry Grid.Column="1" Grid.Row="0" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                                <Entry Grid.Column="1" Grid.Row="1" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                                <Entry Grid.Column="1" Grid.Row="2" Placeholder="Leverancier" Text="{Binding Supplier}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                                <Entry Grid.Column="1" Grid.Row="3" Placeholder="Eenheid" Text="{Binding Unit}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                                <Entry x:Name="entryPrice" Grid.Column="1" Grid.Row="4" Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT, StringFormat='{0:0.00 €}'}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
-                            </Grid>
+                           <!--<Grid Padding="20,10,20,10">
+                              <Grid.ColumnDefinitions>
+                                  <ColumnDefinition Width="Auto" />
+                                  <ColumnDefinition Width="*" />
+                              </Grid.ColumnDefinitions>
+                              <Image Grid.Column="0" Grid.Row="0" Source="baseline_info_black_24.png" VerticalOptions="Center" />
+                              <Entry Grid.Column="1" Grid.Row="0" Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
+                              <Entry Grid.Column="1" Grid.Row="1" Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
+                              <Entry Grid.Column="1" Grid.Row="2" Placeholder="Leverancier" Text="{Binding Supplier}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
+                              <Entry Grid.Column="1" Grid.Row="3" Placeholder="Eenheid" Text="{Binding Unit}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
+                              <Entry x:Name="entryPrice" Grid.Column="1" Grid.Row="4" Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT, StringFormat='{0:0.00 €}'}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
+                           </Grid>-->
+                          <StackLayout Padding="20,10,20,10" Margin="0,5,0,5">
+                            <Label Text="Code" FontAttributes="Bold" />
+                            <Entry Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Label Text="Groep" FontAttributes="Bold"/>
+                            <Entry Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Label Text="Leverancier" FontAttributes="Bold"/>
+                            <Entry Placeholder="Leverancier" Text="{Binding Supplier}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Label Text="Eenheid" FontAttributes="Bold"/>
+                            <Entry Placeholder="Eenheid" Text="{Binding Unit}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Label Text="Prijs excl. BTW" FontAttributes="Bold"/>
+                            <Entry Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Numeric" />
+                          </StackLayout>
                         </ViewCell>
                     </TableSection>
                     <TableSection>
                         <ViewCell>
-                            <Grid Padding="20,10,20,10">
+                            <!--<Grid Padding="20,10,20,10">
                                 <Grid.ColumnDefinitions>
                                     <ColumnDefinition Width="Auto" />
                                     <ColumnDefinition Width="*" />
@@ -44,7 +60,13 @@
                                 <Image Grid.Column="0" Grid.Row="0" Source="baseline_storage_black_24.png" VerticalOptions="Center" />
                                 <Entry Grid.Column="1" Grid.Row="0" Placeholder="Voorraad" Text="{Binding Stock}" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
                                 <Entry Grid.Column="1" Grid.Row="1" Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
-                            </Grid>
+                            </Grid>-->
+                          <StackLayout x:Name="lastStackLayout" Padding="20,10,20,10" Margin="0,5,0,5">
+                            <Label Text="Voorraad" FontAttributes="Bold" />
+                            <Entry Placeholder="Voorraad" Text="{Binding Stock}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Numeric"/>
+                            <Label Text="Gereserveerd" FontAttributes="Bold" />
+                            <Entry Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Numeric"/>
+                          </StackLayout>
                         </ViewCell>
                     </TableSection>
                 </TableRoot>

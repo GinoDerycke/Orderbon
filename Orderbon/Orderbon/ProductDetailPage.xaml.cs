@@ -6,6 +6,8 @@ using System.Threading.Tasks;
 
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+//using Android;
+//using Android.InputMethodServices;
 
 namespace Orderbon
 {
@@ -105,6 +107,20 @@ namespace Orderbon
             //    entryPrice.Text = e.NewTextValue.ToString() + " €";
 
             Changed = true;
+        }
+
+        private void Entry_Focused(object sender, FocusEventArgs e)
+        {
+            StackLayout stackLayout = this.FindByName<StackLayout>("lastStackLayout");
+            //int keyboardHeight = Android.InputMethodServices.Keyboard.Height;
+
+            stackLayout.Margin = new Thickness(0, 5, 0, 400);
+        }
+
+        private void Entry_Unfocused(object sender, FocusEventArgs e)
+        {
+            StackLayout stackLayout = this.FindByName<StackLayout>("lastStackLayout");
+            stackLayout.Margin = new Thickness(0, 5, 0, 5);
         }
 
         protected override bool OnBackButtonPressed()

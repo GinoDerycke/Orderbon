@@ -3,7 +3,11 @@
             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
             xmlns:local="clr-namespace:Orderbon"
             x:Class="Orderbon.MainPage"
-            x:Name="TabPage">
+            x:Name="TabPage"
+            xmlns:android="clr-namespace:Xamarin.Forms.PlatformConfiguration.AndroidSpecific;assembly=Xamarin.Forms.Core"
+            android:TabbedPage.ToolbarPlacement="Bottom"
+            android:TabbedPage.BarItemColor="#666666"
+            android:TabbedPage.BarSelectedItemColor="Black">
   <!--Pages can be added as references or inline-->
   <!--
     <NavigationPage x:Name="NavOrderPage" Title="Orders" Icon="">

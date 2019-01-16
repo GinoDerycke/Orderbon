@@ -26,12 +26,16 @@ namespace Orderbon
 
             NavigationPage navOrderPage = new NavigationPage(orderPage);
             navOrderPage.Title = "Orders";
+            navOrderPage.Icon = "baseline_list_black_18.png";
+
 
             NavigationPage navContactPage = new NavigationPage(contactPage);
             navContactPage.Title = "Klanten";
+            navContactPage.Icon = "baseline_person_black_18.png";
 
             NavigationPage navProductPage = new NavigationPage(productPage);
             navProductPage.Title = "Artikelen";
+            navProductPage.Icon = "baseline_storage_black_18.png";
 
             TabbedPage tabPage = this.FindByName<TabbedPage>("TabPage");
 
