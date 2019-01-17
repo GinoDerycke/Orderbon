@@ -2342,8 +2342,26 @@ namespace Orderbon.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
+			// aapt resource value: 0x7f0201b5
+			public const int avd_hide_password_1 = 2130837941;
+			
+			// aapt resource value: 0x7f0201b6
+			public const int avd_hide_password_2 = 2130837942;
+			
+			// aapt resource value: 0x7f0201b7
+			public const int avd_hide_password_3 = 2130837943;
+			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
+			
+			// aapt resource value: 0x7f0201b8
+			public const int avd_show_password_1 = 2130837944;
+			
+			// aapt resource value: 0x7f0201b9
+			public const int avd_show_password_2 = 2130837945;
+			
+			// aapt resource value: 0x7f0201ba
+			public const int avd_show_password_3 = 2130837946;
 			
 			// aapt resource value: 0x7f020055
 			public const int baseline_account_circle_24 = 2130837589;

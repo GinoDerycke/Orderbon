@@ -109,20 +109,6 @@ namespace Orderbon
             Changed = true;
         }
 
-        private void Entry_Focused(object sender, FocusEventArgs e)
-        {
-            StackLayout stackLayout = this.FindByName<StackLayout>("lastStackLayout");
-            //int keyboardHeight = Android.InputMethodServices.Keyboard.Height;
-
-            stackLayout.Margin = new Thickness(0, 5, 0, 400);
-        }
-
-        private void Entry_Unfocused(object sender, FocusEventArgs e)
-        {
-            StackLayout stackLayout = this.FindByName<StackLayout>("lastStackLayout");
-            stackLayout.Margin = new Thickness(0, 5, 0, 5);
-        }
-
         protected override bool OnBackButtonPressed()
         {
             Device.BeginInvokeOnMainThread(async () => {

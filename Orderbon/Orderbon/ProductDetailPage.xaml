@@ -18,7 +18,7 @@
                             </StackLayout>-->
                           <StackLayout Padding="20,10,20,10">
                             <Label Text="Naam" FontAttributes="Bold" />
-                            <Entry Placeholder="Naam" FontSize="Large" Text="{Binding Name}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Keyboard="Text"/>  
+                            <Entry Placeholder="Naam" FontSize="Large" Text="{Binding Name}" TextChanged="Entry_TextChanged" Keyboard="Text"/>  
                           </StackLayout>  
                         </ViewCell>
                     </TableSection>
@@ -38,15 +38,15 @@
                            </Grid>-->
                           <StackLayout Padding="20,10,20,10" Margin="0,5,0,5">
                             <Label Text="Code" FontAttributes="Bold" />
-                            <Entry Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Entry Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
                             <Label Text="Groep" FontAttributes="Bold"/>
-                            <Entry Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Entry Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
                             <Label Text="Leverancier" FontAttributes="Bold"/>
-                            <Entry Placeholder="Leverancier" Text="{Binding Supplier}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Entry Placeholder="Leverancier" Text="{Binding Supplier}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
                             <Label Text="Eenheid" FontAttributes="Bold"/>
-                            <Entry Placeholder="Eenheid" Text="{Binding Unit}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Text"/>
+                            <Entry Placeholder="Eenheid" Text="{Binding Unit}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
                             <Label Text="Prijs excl. BTW" FontAttributes="Bold"/>
-                            <Entry Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Numeric" />
+                            <Entry Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
                           </StackLayout>
                         </ViewCell>
                     </TableSection>
@@ -62,10 +62,20 @@
                                 <Entry Grid.Column="1" Grid.Row="1" Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
                             </Grid>-->
                           <StackLayout x:Name="lastStackLayout" Padding="20,10,20,10" Margin="0,5,0,5">
-                            <Label Text="Voorraad" FontAttributes="Bold" />
-                            <Entry Placeholder="Voorraad" Text="{Binding Stock}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Numeric"/>
-                            <Label Text="Gereserveerd" FontAttributes="Bold" />
-                            <Entry Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" Focused="Entry_Focused" Unfocused="Entry_Unfocused" Keyboard="Numeric"/>
+                            <Grid>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="50*" />
+                                    <ColumnDefinition Width="50*" />
+                                </Grid.ColumnDefinitions>
+                                <StackLayout Grid.Column="0">
+                                    <Label Text="Voorraad" FontAttributes="Bold" />
+                                    <Entry Placeholder="Voorraad" Text="{Binding Stock}" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
+                                </StackLayout>
+                                <StackLayout Grid.Column="1">
+                                    <Label Text="Gereserveerd" FontAttributes="Bold" />
+                                    <Entry Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
+                                </StackLayout>
+                                </Grid>
                           </StackLayout>
                         </ViewCell>
                     </TableSection>
