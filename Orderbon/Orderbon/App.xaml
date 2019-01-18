@@ -3,6 +3,11 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Orderbon.App">
 	<Application.Resources>
-    
+        <ResourceDictionary>
+            <Style x:Key="label" TargetType="Label">
+                <Setter Property="FontAttributes" Value="Bold" />
+                <Setter Property="TextColor" Value="Orange" />
+            </Style>
+        </ResourceDictionary>
 	</Application.Resources>
 </Application>

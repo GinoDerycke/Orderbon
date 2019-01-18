@@ -17,7 +17,7 @@
                                 <Entry Placeholder="Naam" FontSize="Large" FontAttributes="Bold" Text="{Binding Name}" TextChanged="Entry_TextChanged" HorizontalOptions="FillAndExpand" VerticalOptions="End" Keyboard="Text"/>
                             </StackLayout>-->
                           <StackLayout Padding="20,10,20,10">
-                            <Label Text="Naam" FontAttributes="Bold" />
+                            <Label Text="Naam" Style="{StaticResource label}" />
                             <Entry Placeholder="Naam" FontSize="Large" Text="{Binding Name}" TextChanged="Entry_TextChanged" Keyboard="Text"/>  
                           </StackLayout>  
                         </ViewCell>
@@ -37,15 +37,15 @@
                               <Entry x:Name="entryPrice" Grid.Column="1" Grid.Row="4" Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT, StringFormat='{0:0.00 €}'}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
                            </Grid>-->
                           <StackLayout Padding="20,10,20,10" Margin="0,5,0,5">
-                            <Label Text="Code" FontAttributes="Bold" />
+                            <Label Text="Code" Style="{StaticResource label}" />
                             <Entry Placeholder="Code" Text="{Binding Code}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                            <Label Text="Groep" FontAttributes="Bold"/>
+                            <Label Text="Groep" Style="{StaticResource label}"/>
                             <Entry Placeholder="Groep" Text="{Binding Group}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                            <Label Text="Leverancier" FontAttributes="Bold"/>
+                            <Label Text="Leverancier" Style="{StaticResource label}"/>
                             <Entry Placeholder="Leverancier" Text="{Binding Supplier}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                            <Label Text="Eenheid" FontAttributes="Bold"/>
+                            <Label Text="Eenheid" Style="{StaticResource label}"/>
                             <Entry Placeholder="Eenheid" Text="{Binding Unit}" TextChanged="Entry_TextChanged" Keyboard="Text"/>
-                            <Label Text="Prijs excl. BTW" FontAttributes="Bold"/>
+                            <Label Text="Prijs excl. BTW" Style="{StaticResource label}"/>
                             <Entry Placeholder="Prijs excl. BTW" Text="{Binding SellingPriceExclVAT}" TextChanged="Entry_TextChanged" Keyboard="Numeric" />
                           </StackLayout>
                         </ViewCell>
@@ -68,11 +68,11 @@
                                     <ColumnDefinition Width="50*" />
                                 </Grid.ColumnDefinitions>
                                 <StackLayout Grid.Column="0">
-                                    <Label Text="Voorraad" FontAttributes="Bold" />
+                                    <Label Text="Voorraad" Style="{StaticResource label}" />
                                     <Entry Placeholder="Voorraad" Text="{Binding Stock}" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
                                 </StackLayout>
                                 <StackLayout Grid.Column="1">
-                                    <Label Text="Gereserveerd" FontAttributes="Bold" />
+                                    <Label Text="Gereserveerd" Style="{StaticResource label}" />
                                     <Entry Placeholder="Gereserveerd" Text="{Binding Reserved}" TextChanged="Entry_TextChanged" Keyboard="Numeric"/>
                                 </StackLayout>
                                 </Grid>
