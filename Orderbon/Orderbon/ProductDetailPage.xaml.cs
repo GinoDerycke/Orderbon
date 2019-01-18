@@ -11,16 +11,16 @@ using Xamarin.Forms.Xaml;
 
 namespace Orderbon
 {
-	[XamlCompilation(XamlCompilationOptions.Compile)]
-	public partial class ProductDetailPage : ContentPage
-	{
+    [XamlCompilation(XamlCompilationOptions.Compile)]
+    public partial class ProductDetailPage : ContentPage
+    {
         private bool Changed;
         private bool New;
         private Product OriProduct;
         private ProductPage _productPage;
 
         public ProductDetailPage(Product product, ProductPage productPage)
-		{
+        {
             if (product == null)
                 throw new ArgumentNullException();
 
@@ -42,7 +42,7 @@ namespace Orderbon
                 OriProduct = new Product();
                 product.Copy(OriProduct);
             }
-                
+
         }
 
         async private Task<bool> DoSave(Product product)
@@ -98,7 +98,7 @@ namespace Orderbon
 
             await Navigation.PopModalAsync();
         }
-        
+
         private void Entry_TextChanged(object sender, TextChangedEventArgs e)
         {
             //var entryPrice = this.FindByName<Entry>("entryPrice");
@@ -111,7 +111,8 @@ namespace Orderbon
 
         protected override bool OnBackButtonPressed()
         {
-            Device.BeginInvokeOnMainThread(async () => {
+            Device.BeginInvokeOnMainThread(async () =>
+            {
                 await Check_Changed();
                 await Navigation.PopModalAsync();
             });
