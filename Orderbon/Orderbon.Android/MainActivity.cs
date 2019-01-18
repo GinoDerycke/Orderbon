@@ -23,8 +23,8 @@ namespace Orderbon.Droid
             global::Xamarin.Forms.Forms.Init(this, bundle);
             LoadApplication(new App());
 
-            Window.SetSoftInputMode(Android.Views.SoftInput.AdjustResize);
-            AndroidBug5497WorkaroundForXamarinAndroid.assistActivity(this);
+            //Window.SetSoftInputMode(Android.Views.SoftInput.AdjustResize);
+            //AndroidBug5497WorkaroundForXamarinAndroid.assistActivity(this);
 
             //Xamarin.Forms.Application.Current.On<Xamarin.Forms.PlatformConfiguration.Android>().UseWindowSoftInputModeAdjust(WindowSoftInputModeAdjust.Resize);
         }
