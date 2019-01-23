@@ -18,32 +18,32 @@ namespace Orderbon
         {
             InitializeComponent();
 
-            OrderPage orderPage = new OrderPage();
+            //OrderPage orderPage = new OrderPage();
 
-            ContactPage contactPage = new ContactPage();
+            //ContactPage contactPage = new ContactPage();
 
-            ProductPage productPage = new ProductPage();
+            //ProductPage productPage = new ProductPage();
 
-            NavigationPage navOrderPage = new NavigationPage(orderPage);
-            navOrderPage.Title = "Orders";
-            navOrderPage.Icon = "baseline_list_black_18.png";
+            //NavigationPage navOrderPage = new NavigationPage(orderPage);
+            //navOrderPage.Title = "Orders";
+            //navOrderPage.Icon = "baseline_list_black_18.png";
 
 
-            NavigationPage navContactPage = new NavigationPage(contactPage);
-            navContactPage.Title = "Klanten";
-            navContactPage.Icon = "baseline_person_black_18.png";
+            //NavigationPage navContactPage = new NavigationPage(contactPage);
+            //navContactPage.Title = "Klanten";
+            //navContactPage.Icon = "baseline_person_black_18.png";
 
-            NavigationPage navProductPage = new NavigationPage(productPage);
-            navProductPage.Title = "Artikelen";
-            navProductPage.Icon = "baseline_storage_black_18.png";
+            //NavigationPage navProductPage = new NavigationPage(productPage);
+            //navProductPage.Title = "Artikelen";
+            //navProductPage.Icon = "baseline_storage_black_18.png";
 
-            TabbedPage tabPage = this.FindByName<TabbedPage>("TabPage");
+            //TabbedPage tabPage = this.FindByName<TabbedPage>("TabPage");
 
-            tabPage.Children.Add(navOrderPage);
-            tabPage.Children.Add(navContactPage);
-            tabPage.Children.Add(navProductPage);
+            //tabPage.Children.Add(navOrderPage);
+            //tabPage.Children.Add(navContactPage);
+            //tabPage.Children.Add(navProductPage);
 
-            FirstTime = true;
+            //FirstTime = true;
         }
 
         protected override async void OnAppearing()
