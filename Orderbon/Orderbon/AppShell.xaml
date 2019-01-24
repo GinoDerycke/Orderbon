@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<Shell xmlns="http://xamarin.com/schemas/2014/forms" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+    xmlns:local="clr-namespace:Orderbon" 
+    RouteScheme="app" 
+    RouteHost="microsoft.com" 
+    Route="orderbon" 
+    x:Class="Orderbon.AppShell">
+
+    <ShellItem Title="Orders">
+        <ShellSection>
+            <ShellContent>
+                <local:OrderPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Klanten">
+        <ShellSection>
+            <ShellContent>
+                <local:OrderPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+    <ShellItem Title="Producten">
+        <ShellSection>
+            <ShellContent>
+                <local:OrderPage />
+            </ShellContent>
+        </ShellSection>
+    </ShellItem>
+
+</Shell>

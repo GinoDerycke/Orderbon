@@ -70,7 +70,7 @@ namespace Orderbon
 		{
             // Handle when your app starts
 
-            MainPage = new MainPage();
+            MainPage = new AppShell();
         }
 
 		protected override void OnSleep ()
