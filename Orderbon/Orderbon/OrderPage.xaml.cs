@@ -8,13 +8,13 @@ using System.Collections.ObjectModel;
 
 namespace Orderbon
 {
-	public partial class OrderPage : ContentPage
-	{
+    public partial class OrderPage : ContentPage
+    {
         private ObservableCollection<Order> Items { get; set; }
 
         public OrderPage()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
         }
 
         public void RefreshListView(string searchText = null)
@@ -36,7 +36,7 @@ namespace Orderbon
         {
             if (e.SelectedItem == null)
                 return;
-            
+
             var order = e.SelectedItem as Order;
             await Navigation.PushModalAsync(new OrderDetailPage(order, this));
             MyListView.SelectedItem = null;

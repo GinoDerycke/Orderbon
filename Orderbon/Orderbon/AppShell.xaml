@@ -14,7 +14,7 @@
             </ShellContent>
         </ShellSection>
     </ShellItem>
-    <ShellItem Title="Klanten">
+    <!--<ShellItem Title="Klanten">
         <ShellSection>
             <ShellContent>
                 <local:OrderPage />
@@ -27,6 +27,6 @@
                 <local:OrderPage />
             </ShellContent>
         </ShellSection>
-    </ShellItem>
+    </ShellItem>-->
 
 </Shell>

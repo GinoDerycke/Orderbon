@@ -8,6 +8,13 @@
                 <Setter Property="FontAttributes" Value="Bold" />
                 <Setter Property="TextColor" Value="Orange" />
             </Style>
+            <Style x:Key="navStackLayout" TargetType="StackLayout">
+                <Setter Property="Orientation" Value="Horizontal" />
+                <Setter Property="BackgroundColor" Value="Orange" />
+            </Style>
+            <Style x:Key="navButton" TargetType="Button">
+                <Setter Property="BackgroundColor" Value="Orange" />
+            </Style>
         </ResourceDictionary>
 	</Application.Resources>
 </Application>
