@@ -44,6 +44,7 @@
       <DependentUpon>MainPage.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)OrderProduct.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Product.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ProductDetailPage.xaml.cs">
       <DependentUpon>ProductDetailPage.xaml</DependentUpon>

@@ -750,13 +750,7 @@ namespace Orderbon.Droid
 			global::Xamarin.Forms.Platform.Android.Resource.Drawable.abc_textfield_search_material = global::Orderbon.Droid.Resource.Drawable.abc_textfield_search_material;
 			global::Xamarin.Forms.Platform.Android.Resource.Drawable.abc_vector_test = global::Orderbon.Droid.Resource.Drawable.abc_vector_test;
 			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_hide_password = global::Orderbon.Droid.Resource.Drawable.avd_hide_password;
-			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_hide_password_1 = global::Orderbon.Droid.Resource.Drawable.avd_hide_password_1;
-			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_hide_password_2 = global::Orderbon.Droid.Resource.Drawable.avd_hide_password_2;
-			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_hide_password_3 = global::Orderbon.Droid.Resource.Drawable.avd_hide_password_3;
 			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_show_password = global::Orderbon.Droid.Resource.Drawable.avd_show_password;
-			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_show_password_1 = global::Orderbon.Droid.Resource.Drawable.avd_show_password_1;
-			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_show_password_2 = global::Orderbon.Droid.Resource.Drawable.avd_show_password_2;
-			global::Xamarin.Forms.Platform.Android.Resource.Drawable.avd_show_password_3 = global::Orderbon.Droid.Resource.Drawable.avd_show_password_3;
 			global::Xamarin.Forms.Platform.Android.Resource.Drawable.design_bottom_navigation_item_background = global::Orderbon.Droid.Resource.Drawable.design_bottom_navigation_item_background;
 			global::Xamarin.Forms.Platform.Android.Resource.Drawable.design_fab_background = global::Orderbon.Droid.Resource.Drawable.design_fab_background;
 			global::Xamarin.Forms.Platform.Android.Resource.Drawable.design_ic_visibility = global::Orderbon.Droid.Resource.Drawable.design_ic_visibility;
@@ -4345,26 +4339,8 @@ namespace Orderbon.Droid
 			// aapt resource value: 0x7f020053
 			public const int avd_hide_password = 2130837587;
 			
-			// aapt resource value: 0x7f0201b5
-			public const int avd_hide_password_1 = 2130837941;
-			
-			// aapt resource value: 0x7f0201b6
-			public const int avd_hide_password_2 = 2130837942;
-			
-			// aapt resource value: 0x7f0201b7
-			public const int avd_hide_password_3 = 2130837943;
-			
 			// aapt resource value: 0x7f020054
 			public const int avd_show_password = 2130837588;
-			
-			// aapt resource value: 0x7f0201b8
-			public const int avd_show_password_1 = 2130837944;
-			
-			// aapt resource value: 0x7f0201b9
-			public const int avd_show_password_2 = 2130837945;
-			
-			// aapt resource value: 0x7f0201ba
-			public const int avd_show_password_3 = 2130837946;
 			
 			// aapt resource value: 0x7f020055
 			public const int baseline_account_circle_24 = 2130837589;

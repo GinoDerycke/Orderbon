@@ -28,7 +28,6 @@ namespace Orderbon
             navOrderPage.Title = "Orders";
             navOrderPage.Icon = "baseline_list_black_18.png";
 
-
             NavigationPage navContactPage = new NavigationPage(contactPage);
             navContactPage.Title = "Klanten";
             navContactPage.Icon = "baseline_person_black_18.png";

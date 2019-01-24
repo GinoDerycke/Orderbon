@@ -9,21 +9,4 @@
             android:TabbedPage.BarItemColor="#666666"
             android:TabbedPage.BarSelectedItemColor="Black">
   <!--Pages can be added as references or inline-->
-  <!--
-    <NavigationPage x:Name="NavOrderPage" Title="Orders" Icon="">
-        <x:Arguments>
-            <local:OrderPage />
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage x:Name="NavCustomerPage" Title="Klanten" Icon="">
-        <x:Arguments>
-            <local:ContactPage />
-        </x:Arguments>
-    </NavigationPage>
-    <NavigationPage x:Name="NavProductPage" Title="Artikelen" Icon="">
-        <x:Arguments>
-            <local:ProductPage />
-        </x:Arguments>
-    </NavigationPage>
-    -->
 </TabbedPage>

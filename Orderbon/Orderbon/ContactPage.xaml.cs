@@ -12,17 +12,17 @@ namespace Orderbon
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ContactPage : ContentPage
     {
-        private OrderDetailPage _orderDetailPage;
+        private OrderDetailPage _OrderDetailPage;
 
         public ObservableCollection<Contact> Items { get; set; }
                
-        public ContactPage(OrderDetailPage orderDetailPage = null)
+        public ContactPage(OrderDetailPage OrderDetailPage = null)
         {
             InitializeComponent();
 
-            _orderDetailPage = orderDetailPage;
+            _OrderDetailPage = OrderDetailPage;
 
-            if (_orderDetailPage == null)
+            if (_OrderDetailPage == null)
             {
                 this.FindByName<StackLayout>("TopBar").IsVisible = false;
             }
@@ -51,15 +51,15 @@ namespace Orderbon
 
             var contact = e.SelectedItem as Contact;
 
-            if (_orderDetailPage == null)
+            if (_OrderDetailPage == null)
             {
                 await Navigation.PushModalAsync(new ContactDetailPage(contact, this));
             }
             else
             {
-                Order order = _orderDetailPage.BindingContext as Order;
+                Order order = _OrderDetailPage.BindingContext as Order;
                 order.ContactId = contact.Id;
-                _orderDetailPage.RefreshContact();
+                _OrderDetailPage.RefreshContact();
                 await Navigation.PopModalAsync();
             }
 

@@ -6,90 +6,44 @@
              Title="Order">
     <ContentPage.Content>
         <StackLayout Orientation="Vertical">
-            <StackLayout Orientation="Horizontal" BackgroundColor="White">
-                <Button Text="Terug" Image="baseline_arrow_back_black_24.png" HorizontalOptions="Start" Clicked="Cancel_Clicked" BackgroundColor="White"/>
-                <Button Text="Bewaren" Image="baseline_done_black_24.png"  HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" BackgroundColor="White"/>
+            <StackLayout Orientation="Horizontal" Style="{StaticResource navStackLayout}">
+                <Button Text="Terug" Image="baseline_arrow_back_black_24.png" HorizontalOptions="Start" Clicked="Cancel_Clicked" Style="{StaticResource navButton}"/>
+                <Button Text="Bewaren" Image="baseline_done_black_24.png"  HorizontalOptions="EndAndExpand" Clicked="Save_Clicked" Style="{StaticResource navButton}"/>
             </StackLayout>
             <TableView Intent="Form" HasUnevenRows="True">
                 <TableRoot>
                     <TableSection>
                         <ViewCell>
-                            <StackLayout Orientation="Horizontal" HeightRequest="150" Padding="20,10,20,10">
-                                <Entry Placeholder="Titel" FontSize="Large" FontAttributes="Bold" Text="{Binding Title}" HorizontalOptions="FillAndExpand" VerticalOptions="End" Keyboard="Text"/>
+                            <StackLayout Padding="20,10,20,10">
+                                <Label Text="Titel" Style="{StaticResource label}" />
+                                <Entry Placeholder="Titel" FontSize="Large" Text="{Binding Title}" Keyboard="Text"/>
                             </StackLayout>
-                        </ViewCell>
-                    </TableSection>
-                    <TableSection>
-                        <ViewCell>
-                            <Grid Padding="20,10,20,10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Grid.Row="0" Source="baseline_person_black_24.png" VerticalOptions="Center" />
-                                <Entry x:Name="ContactEntry" Grid.Column="1" Grid.Row="0" Placeholder="Klant" Text="{Binding Contact.Name}" Focused="Contact_Focused" />
-                                <Image Grid.Column="0" Grid.Row="1" Source="baseline_today_black_24.png" VerticalOptions="Center" />
-                                <Label Grid.Column="1" Grid.Row="1" Text="{Binding Date}" VerticalOptions="Center" />
-                            </Grid>
-                        </ViewCell>
-                    </TableSection>
-                    <!--
-                    <TableSection>
-                        <ViewCell>
-                            <Grid Padding="10,10,10,10">
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Grid.Row="0" Source="https://png.icons8.com/material/48/000000/info.png" VerticalOptions="Center" />
-                                <ListView Grid.Column="1" Grid.Row="0">
-                                
-                                </ListView>
-                            </Grid>
-                        </ViewCell>   
-                    </TableSection>
-                    -->
-                    <TableSection>
-                        <ViewCell>
-                            <Grid Padding="20,10,20,10">
-                                <Grid.RowDefinitions>
-                                    <RowDefinition Height="Auto"/>
-                                </Grid.RowDefinitions>
-                                <Grid.ColumnDefinitions>
-                                    <ColumnDefinition Width="Auto" />
-                                    <ColumnDefinition Width="*" />
-                                </Grid.ColumnDefinitions>
-                                <Image Grid.Column="0" Grid.Row="0" Source="baseline_comment_black_24.png" VerticalOptions="Start" Margin="0,12,0,0"/>
-                                <local:ExpandableEditor Grid.Column="1" Grid.Row="0" VerticalOptions="FillAndExpand" />
-                            </Grid>
                         </ViewCell>
                     </TableSection>
                     <TableSection>
                         <ViewCell>
                             <StackLayout Padding="20,10,20,10">
-                                <Grid>
-                                    <Grid.RowDefinitions>
-                                        <RowDefinition Height="Auto"/>
-                                    </Grid.RowDefinitions>
-                                    <Grid.ColumnDefinitions>
-                                        <ColumnDefinition Width="Auto" />
-                                        <ColumnDefinition Width="*" />
-                                    </Grid.ColumnDefinitions>
-                                    <Label Grid.Column="0" Grid.Row="0" Text="1." VerticalOptions="Center"/>
-                                    <Label Grid.Column="1" Grid.Row="0" Text="Ledstrip" VerticalOptions="Center"/>
-                                </Grid>
-                                <StackLayout Orientation="Horizontal">
-                                    <Button Text="-" WidthRequest="50" HorizontalOptions="Start"/>
-                                    <Entry Text="1" WidthRequest="50" Keyboard="Numeric"/>
-                                    <Button Text="+" WidthRequest="50"/>
-                                    <Label Text="2,00€" />
-                                    <Label Text="6,00€" />
-                                </StackLayout>
+                                <Label Text="Klant" Style="{StaticResource label}" />
+                                <Entry Placeholder="Klant" Text="{Binding Contact.Name}" Focused="Contact_Focused"/>
+                                <Label Text="Datum" Style="{StaticResource label}" />
+                                <Label Text="{Binding Date}" />
                             </StackLayout>
                         </ViewCell>
                     </TableSection>
                 </TableRoot>
             </TableView>
+            <StackLayout Orientation="Horizontal">
+                <Button Text="Overzicht" />
+                <Button Text="Notitie" />
+            </StackLayout>
+            <StackLayout>
+                <ListView>
+                    
+                </ListView>
+            </StackLayout>
+            <StackLayout>
+                <local:ExpandableEditor VerticalOptions="FillAndExpand" />
+            </StackLayout>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
